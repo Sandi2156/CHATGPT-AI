@@ -4,8 +4,15 @@ import { StyleSheet, Text, View } from "react-native";
 import HomeScreen from "./app/screens/HomeScreen";
 import Chat from "./app/components/Chat";
 
+import { NavigationContainer } from "@react-navigation/native";
+import HomeNavigator from "./app/navigation/HomeNavigator";
+
 export default function App() {
-	return <Chat />;
+	return (
+		<NavigationContainer>
+			<HomeNavigator />
+		</NavigationContainer>
+	);
 }
 
 const styles = StyleSheet.create({
