@@ -6,11 +6,12 @@ import Chat from "./app/components/Chat";
 
 import { NavigationContainer } from "@react-navigation/native";
 import HomeNavigator from "./app/navigation/HomeNavigator";
+import TabNavigator from "./app/navigation/TabNavigator";
 
 export default function App() {
 	return (
 		<NavigationContainer>
-			<HomeNavigator />
+			<TabNavigator />
 		</NavigationContainer>
 	);
 }
