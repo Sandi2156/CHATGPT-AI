@@ -3,6 +3,7 @@ import { StyleSheet, View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import colors from "../constants/colors";
+import routes from "../constants/routes";
 import AppText from "./AppText";
 
 type AppButtonProps = {
@@ -19,7 +20,7 @@ export default function AppButton({
 	const navigation = useNavigation();
 
 	return (
-		<TouchableOpacity onPress={() => navigation.navigate("Chat" as never)}>
+		<TouchableOpacity onPress={() => navigation.navigate(routes.CHAT as never)}>
 			<View style={styles.container}>
 				<View
 					style={[
