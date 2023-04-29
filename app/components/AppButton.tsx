@@ -1,5 +1,6 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import colors from "../constants/colors";
 import AppText from "./AppText";
@@ -15,19 +16,23 @@ export default function AppButton({
 	backgroundColor,
 	IconComponent,
 }: AppButtonProps) {
-	return (
-		<View style={styles.container}>
-			<View
-				style={[
-					styles.iconContainer,
-					{ backgroundColor: colors[backgroundColor] },
-				]}
-			>
-				{IconComponent}
-			</View>
+	const navigation = useNavigation();
 
-			<AppText>{title}</AppText>
-		</View>
+	return (
+		<TouchableOpacity onPress={() => navigation.navigate("Chat" as never)}>
+			<View style={styles.container}>
+				<View
+					style={[
+						styles.iconContainer,
+						{ backgroundColor: colors[backgroundColor] },
+					]}
+				>
+					{IconComponent}
+				</View>
+
+				<AppText>{title}</AppText>
+			</View>
+		</TouchableOpacity>
 	);
 }
 
