@@ -2,9 +2,10 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 
 import HomeScreen from "./app/screens/HomeScreen";
+import Chat from "./app/components/Chat";
 
 export default function App() {
-	return <HomeScreen />;
+	return <Chat />;
 }
 
 const styles = StyleSheet.create({

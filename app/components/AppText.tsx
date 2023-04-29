@@ -3,7 +3,7 @@ import React from "react";
 
 import colors from "../constants/colors";
 
-export default function AppText({ children }: { children: string }) {
+export default function AppText({ children }: { children: any }) {
 	return <Text style={styles.text}>{children}</Text>;
 }
 
