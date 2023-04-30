@@ -1,6 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { MaterialCommunityIcons, Ionicons, Octicons } from "@expo/vector-icons";
-import { View } from "react-native";
+import { Ionicons, Octicons } from "@expo/vector-icons";
 
 import routes from "../constants/routes";
 import ChatScreen from "../screens/ChatScreen";
@@ -19,7 +18,7 @@ export default function TabNavigator() {
 				tabBarInactiveBackgroundColor: "#2a2a2a",
 				tabBarShowLabel: false,
 				tabBarStyle: { borderTopWidth: 0, height: 60 },
-				tabBarIcon: ({ focused, color, size }) => {
+				tabBarIcon: ({ focused, size }) => {
 					if (route.name === routes.HOME_TAB)
 						return (
 							<TabBarIcon
@@ -47,25 +46,9 @@ export default function TabNavigator() {
 				},
 			})}
 		>
-			<Tab.Screen
-				name={routes.HOME_TAB}
-				component={HomeNavigator}
-				// options={{
-				// 	tabBarIcon: ({ color, size }) => (
-				// 		<Octicons name="home" color={color} size={size} />
-				// 	),
-				// }}
-			/>
+			<Tab.Screen name={routes.HOME_TAB} component={HomeNavigator} />
 
-			<Tab.Screen
-				name={routes.GENERAL_CHAT_TAB}
-				component={ChatScreen}
-				// options={{
-				// 	tabBarIcon: ({ color, size }) => (
-				// 		<Ionicons name="chatbubbles-outline" color={color} size={size} />
-				// 	),
-				// }}
-			/>
+			<Tab.Screen name={routes.GENERAL_CHAT_TAB} component={ChatScreen} />
 		</Tab.Navigator>
 	);
 }
