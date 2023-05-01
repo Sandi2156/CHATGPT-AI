@@ -1,11 +1,12 @@
 import React, { useState, useCallback, useEffect } from "react";
-import { GiftedChat } from "react-native-gifted-chat";
-import { Ionicons } from "@expo/vector-icons";
+import { GiftedChat, Send, InputToolbar } from "react-native-gifted-chat";
+import { Ionicons, MaterialIcons, FontAwesome5 } from "@expo/vector-icons";
 import AppText from "./AppText";
 import { View } from "react-native";
 import uuid from "react-native-uuid";
 
 import chatApi from "../api/chat";
+import colors from "../constants/colors";
 
 type MessageType = {
 	_id: number | string;
@@ -16,7 +17,7 @@ type MessageType = {
 
 type GptRequestMessageType = { role: string; content: string };
 
-function Chat() {
+function Chat(props: any) {
 	const [chatMessages, setChatMessages] = useState<Array<MessageType>>([]);
 	const [gptRequestMessages, setGptRequestMessages] = useState<
 		Array<GptRequestMessageType>
@@ -71,6 +72,7 @@ function Chat() {
 	}, []);
 
 	return (
+		// <View style={{ backgroundColor: colors.background }}>
 		<GiftedChat
 			messages={chatMessages}
 			onSend={(messages) => onSend(messages)}
@@ -78,6 +80,8 @@ function Chat() {
 				_id: 1,
 				avatar: () => <Ionicons name="person-outline" size={20} />,
 			}}
+			renderSend={renderSend}
+			renderInputToolbar={(props) => customtInputToolbar(props)}
 			// renderMessage={(message) => (
 			// 	<View>
 			// 		<AppText>{message.currentMessage?.text}</AppText>
@@ -85,7 +89,51 @@ function Chat() {
 			// )}
 			// bottomOffset={10}
 		/>
+		// </View>
 	);
 }
+
+const renderSend = (props: any) => {
+	return (
+		<Send
+			{...props}
+			containerStyle={{ width: 40, height: "100%", justifyContent: "center" }}
+		>
+			<View
+				style={{
+					justifyContent: "center",
+					alignItems: "center",
+					height: 30,
+					marginRight: 10,
+					backgroundColor: "#f3fc8a",
+					width: 30,
+					borderRadius: 10,
+				}}
+			>
+				<FontAwesome5 name="paper-plane" color={colors.medium} size={15} />
+			</View>
+		</Send>
+	);
+};
+
+const customtInputToolbar = (props: any) => {
+	return (
+		<InputToolbar
+			{...props}
+			containerStyle={{
+				backgroundColor: "black",
+				borderTopColor: "#E8E8E8",
+				borderTopWidth: 1,
+				justifyContent: "space-between",
+				flex: 1,
+				padding: 2,
+				width: "80%",
+				marginBottom: 4,
+				borderRadius: 10,
+				marginLeft: 35,
+			}}
+		/>
+	);
+};
 
 export default Chat;
