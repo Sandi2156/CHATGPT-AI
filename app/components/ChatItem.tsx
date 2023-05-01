@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
 		borderRadius: 10,
 		width: "auto",
 		alignSelf: "flex-start",
+		scaleY: -1,
 	},
 	text: { color: colors.white, width: "auto" },
 	user_container: {
@@ -40,5 +41,6 @@ const styles = StyleSheet.create({
 		borderRadius: 10,
 		width: "auto",
 		alignSelf: "flex-end",
+		scaleY: -1,
 	},
 });

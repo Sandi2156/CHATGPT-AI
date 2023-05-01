@@ -29,8 +29,6 @@ export default function Chat() {
 		console.log(req);
 		const response = await chatApi.getResponseChat("gpt-3.5-turbo", req);
 
-		// console.log(response.data);
-
 		if (!response.ok) return;
 
 		setMessages([

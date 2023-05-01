@@ -15,10 +15,8 @@ export default function ChatView({ messages }: PropsType) {
 				renderItem={({ item }) => <ChatItem user={item.user} />}
 				style={{
 					marginBottom: 20,
-					// backgroundColor: "red",
-					transform: [{ rotateY: "180deg" }],
+					scaleY: -1,
 				}}
-				// inverted
 			/>
 		</View>
 	);
