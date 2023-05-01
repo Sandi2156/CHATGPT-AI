@@ -5,6 +5,7 @@ import Screen from "../components/Screen";
 import Banner from "../components/Banner";
 import AppButton from "../components/AppButton";
 import ItemSeperator from "../components/ItemSeperator";
+import FloatingButton from "../components/FloatingButton";
 
 import buttonList from "../data/buttonList";
 
@@ -23,6 +24,8 @@ export default function HomeScreen() {
 					ItemSeparatorComponent={ItemSeperator}
 				/>
 			</View>
+
+			<FloatingButton />
 		</Screen>
 	);
 }

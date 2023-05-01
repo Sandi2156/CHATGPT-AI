@@ -17,6 +17,8 @@ const colors = {
 	sky: "#64b4ff",
 	skin: "#ffcdb1",
 	orange: "#ff9000",
+	lightOrange: "#faa28e",
+	background: "#2a2a2a",
 };
 
 export default colors;

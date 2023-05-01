@@ -1,9 +1,9 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import HomeScreen from "../screens/HomeScreen";
 import ChatScreen from "../screens/ChatScreen";
 
 import routes from "../constants/routes";
+import TabNavigator from "./TabNavigator";
 
 const Stack = createNativeStackNavigator();
 
@@ -12,7 +12,7 @@ export default function HomeNavigator() {
 		<Stack.Navigator>
 			<Stack.Screen
 				name={routes.HOME}
-				component={HomeScreen}
+				component={TabNavigator}
 				options={{ headerShown: false }}
 			/>
 

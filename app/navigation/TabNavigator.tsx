@@ -1,11 +1,11 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Ionicons, Octicons } from "@expo/vector-icons";
+import { Octicons, MaterialIcons } from "@expo/vector-icons";
 
 import routes from "../constants/routes";
-import ChatScreen from "../screens/ChatScreen";
-import HomeNavigator from "./HomeNavigator";
 import colors from "../constants/colors";
 import TabBarIcon from "../components/TabBarIcon";
+import AccountScreen from "../screens/AccountScreen";
+import HomeScreen from "../screens/HomeScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -14,8 +14,8 @@ export default function TabNavigator() {
 		<Tab.Navigator
 			screenOptions={({ route }) => ({
 				headerShown: false,
-				tabBarActiveBackgroundColor: "#2a2a2a",
-				tabBarInactiveBackgroundColor: "#2a2a2a",
+				tabBarActiveBackgroundColor: colors.background,
+				tabBarInactiveBackgroundColor: colors.background,
 				tabBarShowLabel: false,
 				tabBarStyle: { borderTopWidth: 0, height: 60 },
 				tabBarIcon: ({ focused, size }) => {
@@ -35,8 +35,8 @@ export default function TabNavigator() {
 							focused={focused}
 							size={size}
 							iconComponent={
-								<Ionicons
-									name="chatbubbles-outline"
+								<MaterialIcons
+									name="person-outline"
 									color={colors.medium}
 									size={size}
 								/>
@@ -46,9 +46,9 @@ export default function TabNavigator() {
 				},
 			})}
 		>
-			<Tab.Screen name={routes.HOME_TAB} component={HomeNavigator} />
+			<Tab.Screen name={routes.HOME_TAB} component={HomeScreen} />
 
-			<Tab.Screen name={routes.GENERAL_CHAT_TAB} component={ChatScreen} />
+			<Tab.Screen name={routes.GENERAL_CHAT_TAB} component={AccountScreen} />
 		</Tab.Navigator>
 	);
 }
