@@ -4,7 +4,7 @@ const apiClient = create({
 	baseURL: "https://api.openai.com/v1/chat/completions",
 	headers: {
 		"Content-Type": "application/json",
-		Authorization: "Bearer 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",
+		Authorization: "Bearer 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",
 	},
 });
 
