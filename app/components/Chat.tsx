@@ -27,6 +27,7 @@ export default function Chat({ question }: PropsType) {
 
 	const sendMessage = async (text: string) => {
 		const local = [
+			{ _id: `${uuid.v4()}`, user: { _id: 2, content: "loading" } },
 			{ _id: `${uuid.v4()}`, user: { _id: 1, content: text } },
 			...messages,
 		];
@@ -38,12 +39,13 @@ export default function Chat({ question }: PropsType) {
 
 		if (!response.ok) return;
 
+		const [_, ...rest] = local;
 		setMessages([
 			{
 				_id: `${uuid.v4()}`,
 				user: { _id: 2, content: response.data?.choices[0]?.message?.content },
 			},
-			...local,
+			...rest,
 		]);
 		setGptMessages([...req, response.data?.choices[0]?.message]);
 	};

@@ -4,8 +4,6 @@ import ChatScreen from "../screens/ChatScreen";
 
 import routes from "../constants/routes";
 import TabNavigator from "./TabNavigator";
-import HeaderBackButton from "../components/HeaderBackButton";
-import colors from "../constants/colors";
 import Screen from "../components/Screen";
 import AppHeader from "../components/AppHeader";
 import SuggestionsScreen from "../screens/Suggestions";
