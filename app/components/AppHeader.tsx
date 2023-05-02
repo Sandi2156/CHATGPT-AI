@@ -1,9 +1,8 @@
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, View, TouchableOpacity } from "react-native";
 import React from "react";
-import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 
-import colors from "../constants/colors";
 import AppText from "./AppText";
+import Icon from "./Icon";
 
 type PropsType = {
 	navigation: any;
@@ -25,7 +24,7 @@ export default function AppHeader({
 				onPress={() => (back ? navigation.goBack() : null)}
 				style={styles.backContainer}
 			>
-				<Ionicons name="chevron-back" color={colors.white} size={25} />
+				<Icon name="chevron-back" type="Ionicons" size={25} />
 
 				<AppText style={{ fontSize: 20, marginLeft: 10 }}>
 					{route.name.toLowerCase()}
@@ -34,9 +33,9 @@ export default function AppHeader({
 
 			{showSuggestionsIcon && (
 				<TouchableOpacity onPress={() => navigation.goBack()}>
-					<MaterialCommunityIcons
+					<Icon
+						type="MaterialCommunityIcons"
 						name="clipboard-list-outline"
-						color={colors.white}
 						size={25}
 					/>
 				</TouchableOpacity>

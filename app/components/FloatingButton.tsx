@@ -5,6 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 
 import colors from "../constants/colors";
 import routes from "../constants/routes";
+import Icon from "./Icon";
 
 export default function FloatingButton() {
 	const navigation = useNavigation();
@@ -14,7 +15,12 @@ export default function FloatingButton() {
 			style={styles.container}
 			onPress={() => navigation.navigate(routes.SUGGESTIONS as never)}
 		>
-			<Ionicons name="chatbubbles-outline" color={colors.medium} size={35} />
+			<Icon
+				type="Ionicons"
+				name="chatbubbles-outline"
+				color={colors.medium}
+				size={35}
+			/>
 		</TouchableOpacity>
 	);
 }

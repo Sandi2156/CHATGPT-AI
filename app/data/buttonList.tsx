@@ -8,7 +8,6 @@ import {
 } from "@expo/vector-icons";
 
 const iconSize = 30;
-
 import colors from "../constants/colors";
 
 const buttonList: Array<{
