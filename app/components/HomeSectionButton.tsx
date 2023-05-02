@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 import colors from "../constants/colors";
 import routes from "../constants/routes";
@@ -12,15 +13,21 @@ type AppButtonProps = {
 	IconComponent: React.ReactNode;
 };
 
-export default function AppButton({
+export default function HomeSectionButton({
 	title,
 	backgroundColor,
 	IconComponent,
 }: AppButtonProps) {
-	const navigation = useNavigation();
+	const SUGGESTIONS = routes.SUGGESTIONS;
+	const navigation =
+		useNavigation<
+			NativeStackNavigationProp<{ SUGGESTIONS: { section: string } }>
+		>();
 
 	return (
-		<TouchableOpacity onPress={() => navigation.navigate(routes.CHAT as never)}>
+		<TouchableOpacity
+			onPress={() => navigation.navigate(SUGGESTIONS, { section: title })}
+		>
 			<View style={styles.container}>
 				<View
 					style={[

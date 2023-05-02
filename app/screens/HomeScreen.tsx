@@ -3,7 +3,7 @@ import { FlatList, StyleSheet, View } from "react-native";
 
 import Screen from "../components/Screen";
 import Banner from "../components/Banner";
-import AppButton from "../components/AppButton";
+import HomeSectionButton from "../components/HomeSectionButton";
 import ItemSeperator from "../components/ItemSeperator";
 import FloatingButton from "../components/FloatingButton";
 
@@ -18,7 +18,7 @@ export default function HomeScreen() {
 				<FlatList
 					data={buttonList}
 					keyExtractor={(item) => item.title}
-					renderItem={({ item }) => <AppButton {...item} />}
+					renderItem={({ item }) => <HomeSectionButton {...item} />}
 					numColumns={4}
 					columnWrapperStyle={{ flex: 1, justifyContent: "space-around" }}
 					ItemSeparatorComponent={ItemSeperator}

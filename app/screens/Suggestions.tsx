@@ -3,7 +3,9 @@ import React from "react";
 import colors from "../constants/colors";
 import SuggestionItem from "../components/SuggestionItem";
 
-export default function SuggestionsScreen() {
+export default function SuggestionsScreen({ route }: { route: any }) {
+	const { section } = route.params;
+
 	return (
 		<ScrollView style={styles.container}>
 			<SuggestionItem title="Suggest me 10 tasdjfklj  lasjdf kl  slkj asldjf lsdfthat I can work on" />
