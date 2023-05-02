@@ -16,11 +16,11 @@ export default function SuggestionItem({
 }) {
 	const CHAT = routes.CHAT;
 	const navigation =
-		useNavigation<NativeStackNavigationProp<{ CHAT: { title: string } }>>();
+		useNavigation<NativeStackNavigationProp<{ CHAT: { question: string } }>>();
 
 	return (
 		<TouchableOpacity
-			onPress={() => navigation.navigate(CHAT, { title })}
+			onPress={() => navigation.navigate(CHAT, { question: title })}
 			style={[styles.container, { transform: [{ rotate: rotation }] }]}
 		>
 			<View style={styles.tickContainer} />

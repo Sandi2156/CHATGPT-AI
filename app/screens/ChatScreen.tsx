@@ -1,11 +1,10 @@
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
 import Chat from "../components/Chat";
 
 type PropsType = { navigation: any; route: any };
 export default function ChatScreen({ navigation, route }: PropsType) {
-	return <Chat />;
-}
+	const { question } = route.params;
 
-const styles = StyleSheet.create({});
+	return <Chat question={question} />;
+}
