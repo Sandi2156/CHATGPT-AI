@@ -17,7 +17,7 @@ export default function FloatingButton() {
 	return (
 		<TouchableOpacity
 			style={styles.container}
-			onPress={() => navigation.navigate(SUGGESTIONS, { section: "General" })}
+			onPress={() => navigation.navigate(SUGGESTIONS, { section: "GENERAL" })}
 		>
 			<Icon
 				type="Ionicons"

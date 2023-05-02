@@ -26,7 +26,9 @@ export default function HomeSectionButton({
 
 	return (
 		<TouchableOpacity
-			onPress={() => navigation.navigate(SUGGESTIONS, { section: title })}
+			onPress={() =>
+				navigation.navigate(SUGGESTIONS, { section: title.toUpperCase() })
+			}
 		>
 			<View style={styles.container}>
 				<View
