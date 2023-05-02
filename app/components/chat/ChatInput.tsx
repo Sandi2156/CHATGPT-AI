@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 
-import colors from "../constants/colors";
+import colors from "../../constants/colors";
 
 type PropsType = { sendMessage: (text: string) => void };
 export default function ChatInput({ sendMessage }: PropsType) {

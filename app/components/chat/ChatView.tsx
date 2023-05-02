@@ -2,7 +2,7 @@ import React from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 
 import ChatItem from "./ChatItem";
-import colors from "../constants/colors";
+import colors from "../../constants/colors";
 
 type MessageType = { _id: string; user: { _id: number; content: string } };
 type PropsType = { messages: Array<MessageType> };

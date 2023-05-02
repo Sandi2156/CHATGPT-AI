@@ -1,10 +1,10 @@
 import { StyleSheet, View } from "react-native";
 import React, { useState, useEffect } from "react";
+import uuid from "react-native-uuid";
 
 import ChatView from "./ChatView";
 import ChatInput from "./ChatInput";
-import uuid from "react-native-uuid";
-import chatApi from "../api/chat";
+import chatApi from "../../api/chat";
 
 type Messagetype = {
 	_id: string;
