@@ -26,6 +26,8 @@ export default function ChatInput({ sendMessage }: PropsType) {
 					style={styles.input}
 					onChangeText={(text) => setText(text)}
 					value={text}
+					placeholder="Ask me anything !"
+					placeholderTextColor={colors.medium}
 				/>
 
 				<TouchableOpacity style={styles.sendButton} onPress={handleOnPress}>
