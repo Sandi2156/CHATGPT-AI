@@ -26,6 +26,9 @@ export default function Chat({ question }: PropsType) {
 	const [gptMessages, setGptMessages] = useState<Array<GptMessagetype>>([]);
 
 	const sendMessage = async (text: string) => {
+		text = text.trim();
+		if (!text) return;
+
 		const local = [
 			{ _id: `${uuid.v4()}`, user: { _id: 2, content: "loading" } },
 			{ _id: `${uuid.v4()}`, user: { _id: 1, content: text } },
