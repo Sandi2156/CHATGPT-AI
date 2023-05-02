@@ -12,7 +12,7 @@ export default function FloatingButton() {
 	return (
 		<TouchableOpacity
 			style={styles.container}
-			onPress={() => navigation.navigate(routes.CHAT as never)}
+			onPress={() => navigation.navigate(routes.SUGGESTIONS as never)}
 		>
 			<Ionicons name="chatbubbles-outline" color={colors.medium} size={35} />
 		</TouchableOpacity>

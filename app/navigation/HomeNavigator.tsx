@@ -8,6 +8,7 @@ import HeaderBackButton from "../components/HeaderBackButton";
 import colors from "../constants/colors";
 import Screen from "../components/Screen";
 import AppHeader from "../components/AppHeader";
+import SuggestionsScreen from "../screens/Suggestions";
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +23,21 @@ export default function HomeNavigator() {
 				/>
 
 				<Stack.Screen
+					name={routes.SUGGESTIONS}
+					component={SuggestionsScreen}
+					options={({ navigation }) => ({
+						header: ({ navigation, options, route, back }) => (
+							<AppHeader
+								navigation={navigation}
+								options={options}
+								route={route}
+								back={back}
+							/>
+						),
+					})}
+				/>
+
+				<Stack.Screen
 					name={routes.CHAT}
 					component={ChatScreen}
 					options={({ navigation }) => ({
@@ -31,6 +47,7 @@ export default function HomeNavigator() {
 								options={options}
 								route={route}
 								back={back}
+								showSuggestionsIcon
 							/>
 						),
 					})}

@@ -44,6 +44,7 @@ export default function Chat() {
 	return (
 		<View>
 			<ChatView messages={messages} />
+
 			<ChatInput sendMessage={sendMessage} />
 		</View>
 	);
