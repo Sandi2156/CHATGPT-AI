@@ -4,6 +4,7 @@ import {
 	FontAwesome5,
 	Octicons,
 	MaterialIcons,
+	FontAwesome,
 } from "@expo/vector-icons";
 
 import IconType from "../enums/icons";
@@ -19,16 +20,18 @@ export default function Icon(props: PropsType) {
 
 	const getComponent = () => {
 		switch (type) {
-			case "FontAwesome5":
+			case IconType.FONTAWESOME5:
 				return FontAwesome5;
-			case "Ionicons":
+			case IconType.ION:
 				return Ionicons;
-			case "MaterialCommunityIcons":
+			case IconType.MATERIALCOMMUNITY:
 				return MaterialCommunityIcons;
-			case "MaterialIcons":
+			case IconType.MATERIAL:
 				return MaterialIcons;
-			case "Octicons":
+			case IconType.OCT:
 				return Octicons;
+			case IconType.FONTAWESOME:
+				return FontAwesome;
 		}
 	};
 

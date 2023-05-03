@@ -5,6 +5,7 @@ import {
 	View,
 	TouchableOpacity,
 	Platform,
+	KeyboardAvoidingView,
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 
@@ -21,7 +22,11 @@ export default function ChatInput({ sendMessage, question }: PropsType) {
 
 	return (
 		<View style={styles.container}>
-			<View style={styles.inputContainer}>
+			<KeyboardAvoidingView
+				behavior={Platform.OS === "ios" ? "padding" : undefined}
+				keyboardVerticalOffset={500}
+				style={styles.inputContainer}
+			>
 				<TextInput
 					style={styles.input}
 					onChangeText={(text) => setText(text)}
@@ -35,7 +40,7 @@ export default function ChatInput({ sendMessage, question }: PropsType) {
 				<TouchableOpacity style={styles.sendButton} onPress={handleOnPress}>
 					<FontAwesome5 name="paper-plane" size={16} />
 				</TouchableOpacity>
-			</View>
+			</KeyboardAvoidingView>
 		</View>
 	);
 }

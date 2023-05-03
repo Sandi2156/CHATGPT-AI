@@ -8,34 +8,34 @@ const suggestionsHomeList: Array<{
 	titleBackground: string;
 }> = [
 	{
-		iconName: "home",
-		iconType: IconType.MATERIALCOMMUNITY,
-		title: "What will you do today ?",
+		iconName: "hospital-o",
+		iconType: IconType.FONTAWESOME,
+		title: "What should I do if I have malaria ?",
 		titleBackground: colors.secondary,
 	},
 	{
-		iconName: "home",
+		iconName: "dumbbell",
 		iconType: IconType.MATERIALCOMMUNITY,
-		title: "What will  do  ?",
-		titleBackground: colors.secondary,
+		title: "What should my daily calory intake ?",
+		titleBackground: colors.yellow,
 	},
 	{
-		iconName: "home",
-		iconType: IconType.MATERIALCOMMUNITY,
-		title: "What  you do  ?",
-		titleBackground: colors.secondary,
+		iconName: "language",
+		iconType: IconType.FONTAWESOME,
+		title: "Convert this in english: Ami tomake valobasi",
+		titleBackground: colors.primary,
 	},
 	{
-		iconName: "home",
+		iconName: "language-java",
 		iconType: IconType.MATERIALCOMMUNITY,
-		title: " will you do  ?",
-		titleBackground: colors.secondary,
+		title: "Write a program to print pyramid",
+		titleBackground: colors.leaf,
 	},
 	{
-		iconName: "home",
+		iconName: "spoon-sugar",
 		iconType: IconType.MATERIALCOMMUNITY,
-		title: "What will you do  fd?",
-		titleBackground: colors.secondary,
+		title: "Give a receipe on chicken butter masala ",
+		titleBackground: colors.orange,
 	},
 ];
 
