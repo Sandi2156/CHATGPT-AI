@@ -1,30 +1,20 @@
 import { StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
+import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 import colors from "../constants/colors";
 import routes from "../constants/routes";
-import Icon from "./Icon";
 
 export default function FloatingButton() {
-	const SUGGESTIONS = routes.SUGGESTIONS;
-	const navigation =
-		useNavigation<
-			NativeStackNavigationProp<{ SUGGESTIONS: { section: string } }>
-		>();
+	const navigation = useNavigation();
 
 	return (
 		<TouchableOpacity
 			style={styles.container}
-			onPress={() => navigation.navigate(SUGGESTIONS, { section: "GENERAL" })}
+			onPress={() => navigation.navigate(routes.CHAT as never)}
 		>
-			<Icon
-				type="Ionicons"
-				name="chatbubbles-outline"
-				color={colors.medium}
-				size={35}
-			/>
+			<Ionicons name="chatbubbles-outline" color={colors.medium} size={35} />
 		</TouchableOpacity>
 	);
 }

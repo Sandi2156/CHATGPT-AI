@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { Shadow } from "react-native-shadow-2";
 
 import colors from "../constants/colors";
 import routes from "../constants/routes";
@@ -29,8 +30,9 @@ export default function HomeSectionButton({
 			onPress={() =>
 				navigation.navigate(SUGGESTIONS, { section: title.toUpperCase() })
 			}
+			style={styles.container}
 		>
-			<View style={styles.container}>
+			<Shadow>
 				<View
 					style={[
 						styles.iconContainer,
@@ -39,9 +41,9 @@ export default function HomeSectionButton({
 				>
 					{IconComponent}
 				</View>
+			</Shadow>
 
-				<AppText>{title}</AppText>
-			</View>
+			<AppText>{title}</AppText>
 		</TouchableOpacity>
 	);
 }
@@ -52,6 +54,7 @@ const styles = StyleSheet.create({
 		width: 70,
 		justifyContent: "center",
 		alignItems: "center",
+		paddingTop: 10,
 	},
 	iconContainer: {
 		height: 60,
