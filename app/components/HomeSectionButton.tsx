@@ -5,7 +5,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { Shadow } from "react-native-shadow-2";
 
 import colors from "../constants/colors";
-import routes from "../constants/routes";
+import routes from "../enums/routes";
 import AppText from "./AppText";
 
 type AppButtonProps = {

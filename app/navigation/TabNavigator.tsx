@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Octicons, MaterialIcons } from "@expo/vector-icons";
 
-import routes from "../constants/routes";
+import routes from "../enums/routes";
 import colors from "../constants/colors";
 import TabBarIcon from "../components/TabBarIcon";
 import AccountScreen from "../screens/AccountScreen";

@@ -1,10 +1,19 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, ScrollView } from "react-native";
 
 import Constants from "expo-constants";
 import colors from "../constants/colors";
 
-export default function Screen({ children }: { children: React.ReactNode }) {
+export default function Screen({
+	children,
+	isScrollable = false,
+}: {
+	children: React.ReactNode;
+	isScrollable?: boolean;
+}) {
+	if (isScrollable)
+		return <ScrollView style={styles.container}>{children}</ScrollView>;
+
 	return <View style={styles.container}>{children}</View>;
 }
 

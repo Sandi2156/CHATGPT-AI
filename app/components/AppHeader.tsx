@@ -3,6 +3,7 @@ import React from "react";
 
 import AppText from "./AppText";
 import Icon from "./Icon";
+import IconType from "../enums/icons";
 
 type PropsType = {
 	navigation: any;
@@ -24,7 +25,7 @@ export default function AppHeader({
 				onPress={() => (back ? navigation.goBack() : null)}
 				style={styles.backContainer}
 			>
-				<Icon name="chevron-back" type="Ionicons" size={25} />
+				<Icon name="chevron-back" type={IconType.ION} size={25} />
 
 				<AppText style={{ fontSize: 20, marginLeft: 10 }}>
 					{route.name.toLowerCase()}
@@ -34,7 +35,7 @@ export default function AppHeader({
 			{showSuggestionsIcon && (
 				<TouchableOpacity onPress={() => navigation.goBack()}>
 					<Icon
-						type="MaterialCommunityIcons"
+						type={IconType.MATERIALCOMMUNITY}
 						name="clipboard-list-outline"
 						size={25}
 					/>

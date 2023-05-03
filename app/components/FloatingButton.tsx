@@ -4,7 +4,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 import colors from "../constants/colors";
-import routes from "../constants/routes";
+import routes from "../enums/routes";
 
 export default function FloatingButton() {
 	const navigation = useNavigation();

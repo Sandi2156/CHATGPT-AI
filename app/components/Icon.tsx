@@ -6,13 +6,10 @@ import {
 	MaterialIcons,
 } from "@expo/vector-icons";
 
+import IconType from "../enums/icons";
+
 type PropsType = {
-	type:
-		| "Ionicons"
-		| "MaterialCommunityIcons"
-		| "FontAwesome5"
-		| "Octicons"
-		| "MaterialIcons";
+	type: IconType;
 	name: string;
 	color?: string;
 	size?: number;

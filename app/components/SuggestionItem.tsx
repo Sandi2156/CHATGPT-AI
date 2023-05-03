@@ -5,7 +5,7 @@ import AppText from "./AppText";
 
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import routes from "../constants/routes";
+import routes from "../enums/routes";
 
 export default function SuggestionItem({
 	title,

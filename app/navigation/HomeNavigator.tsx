@@ -2,7 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import ChatScreen from "../screens/ChatScreen";
 
-import routes from "../constants/routes";
+import routes from "../enums/routes";
 import TabNavigator from "./TabNavigator";
 import Screen from "../components/Screen";
 import AppHeader from "../components/AppHeader";
