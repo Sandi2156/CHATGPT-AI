@@ -7,12 +7,14 @@ type PropsType = { user: { _id: number; content: string } };
 export default function ChatItem({ user }: PropsType) {
 	if (user.content === "loading")
 		return (
-			<Lottie
-				source={require("../../../assets/animations/loading.json")}
-				autoPlay
-				loop
-				style={{ height: 100, width: 100 }}
-			/>
+			<View style={styles.lottie_container}>
+				<Lottie
+					source={require("../../../assets/animations/97930-loading.json")}
+					autoPlay
+					loop
+					style={{ height: 50, width: 50 }}
+				/>
+			</View>
 		);
 
 	return (
@@ -52,6 +54,19 @@ const styles = StyleSheet.create({
 		borderRadius: 10,
 		width: "auto",
 		alignSelf: "flex-end",
+		scaleY: -1,
+	},
+	lottie_container: {
+		paddingHorizontal: 5,
+		justifyContent: "center",
+		alignItems: "center",
+		backgroundColor: colors.black,
+		maxWidth: "80%",
+		marginBottom: 10,
+		marginLeft: 10,
+		borderRadius: 10,
+		width: "auto",
+		alignSelf: "flex-start",
 		scaleY: -1,
 	},
 });
