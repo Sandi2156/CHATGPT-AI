@@ -9,6 +9,7 @@ import SuggestionHome from "../components/SuggestionHome";
 
 import buttonList from "../data/buttonList";
 import suggestionsHomeList from "../data/suggestionsHomeList";
+import ChatHomeBar from "../components/chat/ChatHomeBar";
 
 export default function HomeScreen() {
 	const one = buttonList.slice(0, 4);
@@ -17,6 +18,8 @@ export default function HomeScreen() {
 	return (
 		<Screen isScrollable>
 			<Banner />
+
+			<ChatHomeBar />
 
 			<View style={styles.listContainer}>
 				<View style={styles.row}>
@@ -43,7 +46,7 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-	listContainer: { paddingHorizontal: 20, marginVertical: 40 },
+	listContainer: { paddingHorizontal: 20, marginVertical: 10 },
 	suggestionContainer: { marginBottom: 20 },
 	row: {
 		flexDirection: "row",

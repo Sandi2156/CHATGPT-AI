@@ -1,54 +1,57 @@
-import React, { useState } from "react";
 import {
 	StyleSheet,
-	TextInput,
+	Text,
 	View,
+	TextInput,
 	TouchableOpacity,
+	TouchableWithoutFeedback,
 	Platform,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
 import { FontAwesome5 } from "@expo/vector-icons";
 
 import colors from "../../constants/colors";
+import routes from "../../enums/routes";
 
-type PropsType = { sendMessage: (text: string) => void; question: string };
-export default function ChatInput({ sendMessage, question }: PropsType) {
-	const [text, setText] = useState("");
-
-	const handleOnPress = () => {
-		setText("");
-		sendMessage(text);
-	};
+export default function ChatHomeBar() {
+	const CHAT = routes.CHAT;
+	const navigation = useNavigation();
 
 	return (
-		<View style={styles.container}>
+		<TouchableWithoutFeedback
+			onPress={() => {
+				navigation.navigate(routes.CHAT);
+			}}
+		>
 			<View style={styles.inputContainer}>
 				<TextInput
 					style={styles.input}
-					onChangeText={(text) => setText(text)}
-					value={text}
 					placeholder="Ask me anything !"
 					placeholderTextColor={colors.medium}
-					multiline
-					autoFocus={!question}
+					pointerEvents="none"
+					editable={false}
 				/>
 
-				<TouchableOpacity style={styles.sendButton} onPress={handleOnPress}>
+				<TouchableOpacity
+					style={styles.sendButton}
+					onPress={() => {
+						navigation.navigate(routes.CHAT);
+					}}
+				>
 					<FontAwesome5 name="paper-plane" size={16} />
 				</TouchableOpacity>
 			</View>
-		</View>
+		</TouchableWithoutFeedback>
 	);
 }
 
 const styles = StyleSheet.create({
-	container: {
-		height: "10%",
-		alignItems: "center",
-		backgroundColor: colors.background,
-	},
 	inputContainer: {
+		alignSelf: "center",
 		backgroundColor: colors.black,
-		width: "85%",
+		width: "90%",
 		height: 50,
 		borderRadius: 15,
 		padding: 5,
@@ -56,6 +59,7 @@ const styles = StyleSheet.create({
 		overflow: "hidden",
 		flexDirection: "row",
 		alignItems: "center",
+		marginTop: 20,
 	},
 	sendButton: {
 		width: 35,

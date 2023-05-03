@@ -61,7 +61,7 @@ export default function Chat({ question }: PropsType) {
 		<View>
 			<ChatView messages={messages} />
 
-			<ChatInput sendMessage={sendMessage} />
+			<ChatInput sendMessage={sendMessage} question={question} />
 		</View>
 	);
 }
