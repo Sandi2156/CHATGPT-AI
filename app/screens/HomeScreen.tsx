@@ -4,7 +4,6 @@ import { StyleSheet, View } from "react-native";
 import Screen from "../components/Screen";
 import Banner from "../components/Banner";
 import HomeSectionButton from "../components/HomeSectionButton";
-import FloatingButton from "../components/FloatingButton";
 import SuggestionHome from "../components/SuggestionHome";
 
 import buttonList from "../data/buttonList";
@@ -39,8 +38,6 @@ export default function HomeScreen() {
 					<SuggestionHome {...item} key={index} />
 				))}
 			</View>
-
-			{/* <FloatingButton /> */}
 		</Screen>
 	);
 }

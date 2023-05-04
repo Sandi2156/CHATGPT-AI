@@ -82,11 +82,7 @@ const styles = StyleSheet.create({
 		scaleY: -1,
 	},
 	actionsContainer: {
-		// backgroundColor: "red",
-		// marginBottom: 10,
-		paddingVertical: 3,
-		marginHorizontal: 10,
-		paddingHorizontal: 10,
-		marginBottom: 10,
+		marginHorizontal: 8,
+		marginBottom: 8,
 	},
 });
