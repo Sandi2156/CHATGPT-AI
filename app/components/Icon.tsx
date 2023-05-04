@@ -5,6 +5,7 @@ import {
 	Octicons,
 	MaterialIcons,
 	FontAwesome,
+	AntDesign,
 } from "@expo/vector-icons";
 
 import IconType from "../enums/icons";
@@ -32,6 +33,8 @@ export default function Icon(props: PropsType) {
 				return Octicons;
 			case IconType.FONTAWESOME:
 				return FontAwesome;
+			case IconType.ANTDESIGN:
+				return AntDesign;
 		}
 	};
 

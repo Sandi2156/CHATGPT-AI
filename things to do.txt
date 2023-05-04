@@ -1,0 +1,20 @@
+1. Today I need to beautify the chatting 
+	i. find good looking chat app in the internet
+	ii. look documentation and check how you can modify the chat
+	iii. do it
+
+
+priority
+* add suggestions screen: https://dribbble.com/shots/19772763-Messenger-App-Design: (done)
+* add loading while waiting for reply (done)
+1. add placeholder : ask me anything (done)
+* add markdown handler (halt for now)
+* add copy button in SuggestionHome component
+2. add google speech to text
+3. sharing the whole chat
+4. guide
+5. reading of response
+
+
+New Section
+Finance

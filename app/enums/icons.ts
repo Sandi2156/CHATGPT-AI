@@ -5,6 +5,7 @@ enum IconType {
 	OCT = "Octicons",
 	MATERIAL = "MaterialIcons",
 	FONTAWESOME = "FontAwesome",
+	ANTDESIGN = "AntDesign",
 }
 
 export default IconType;

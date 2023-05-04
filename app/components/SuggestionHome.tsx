@@ -7,6 +7,7 @@ import Icon from "./Icon";
 import AppText from "./AppText";
 import IconType from "../enums/icons";
 import routes from "../enums/routes";
+import useCopy from "../hooks/useCopy";
 
 type PropsType = {
 	iconName: string;
@@ -25,6 +26,7 @@ export default function SuggestionHome(props: PropsType) {
 	const CHAT = routes.CHAT;
 	const navigation =
 		useNavigation<NativeStackNavigationProp<{ CHAT: { question: string } }>>();
+	const { copy, done } = useCopy();
 
 	return (
 		<View style={styles.container}>
@@ -32,6 +34,14 @@ export default function SuggestionHome(props: PropsType) {
 				style={[styles.upper_container, { backgroundColor: titleBackground }]}
 			>
 				<Icon name={iconName} type={iconType} />
+
+				<TouchableOpacity onPress={() => copy(title)}>
+					{done ? (
+						<Icon name="check" type={IconType.ANTDESIGN} color="green" />
+					) : (
+						<Icon name="copy1" type={IconType.ANTDESIGN} />
+					)}
+				</TouchableOpacity>
 			</View>
 
 			<TouchableOpacity
@@ -57,6 +67,8 @@ const styles = StyleSheet.create({
 	upper_container: {
 		padding: 5,
 		paddingLeft: 10,
+		flexDirection: "row",
+		justifyContent: "space-between",
 	},
 	lower_container: { padding: 10 },
 });
