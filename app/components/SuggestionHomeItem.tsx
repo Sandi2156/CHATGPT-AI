@@ -45,7 +45,11 @@ export default function SuggestionHomeItem(props: PropsType) {
 
 				<TouchableOpacity onPress={() => copy(questions[0])}>
 					{done ? (
-						<Icon name="check" type={IconType.ANTDESIGN} color="green" />
+						<Icon
+							name="check"
+							type={IconType.ANTDESIGN}
+							color={colors.secondary}
+						/>
 					) : (
 						<Icon name="copy1" type={IconType.ANTDESIGN} />
 					)}

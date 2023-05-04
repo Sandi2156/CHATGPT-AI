@@ -1,17 +1,20 @@
 import * as Speech from "expo-speech";
+import { useState } from "react";
 
 const useSpeak = () => {
-	const isSpeaking = async () => {
-		return await Speech.isSpeakingAsync();
-	};
+	const [speaking, setSpeaking] = useState(false);
 
 	const speak = async (text: string) => {
-		if (await isSpeaking()) return Speech.stop();
+		if (await Speech.isSpeakingAsync()) return Speech.stop();
 
-		Speech.speak(text);
+		Speech.speak(text, {
+			onStart: () => setSpeaking(true),
+			onStopped: () => setSpeaking(false),
+			onDone: () => setSpeaking(false),
+		});
 	};
 
-	return { speak };
+	return { speak, speaking };
 };
 
 export default useSpeak;

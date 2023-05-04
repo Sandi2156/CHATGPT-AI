@@ -12,7 +12,7 @@ import colors from "../../constants/colors";
 export default function ChatActions({ text }: { text: string }) {
 	const { done, copy } = useCopy();
 	const { share } = useShare();
-	const { speak } = useSpeak();
+	const { speak, speaking } = useSpeak();
 
 	return (
 		<View style={styles.container}>
@@ -32,7 +32,15 @@ export default function ChatActions({ text }: { text: string }) {
 					onPress={() => speak(text)}
 					style={styles.pressable}
 				>
-					<Icon name="sound" type={IconType.ANTDESIGN} size={18} />
+					{!speaking ? (
+						<Icon name="sound" type={IconType.ANTDESIGN} size={18} />
+					) : (
+						<Icon
+							name="sound"
+							type={IconType.ENTYPO}
+							color={colors.secondary}
+						/>
+					)}
 				</Pressable>
 			</View>
 
@@ -46,7 +54,7 @@ export default function ChatActions({ text }: { text: string }) {
 						<Icon
 							name="check"
 							type={IconType.ANTDESIGN}
-							color="green"
+							color={colors.secondary}
 							size={18}
 						/>
 					) : (
