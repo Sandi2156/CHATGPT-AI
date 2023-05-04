@@ -1,11 +1,8 @@
-import { StyleSheet, View, TouchableOpacity } from "react-native";
+import { StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 import colors from "../constants/colors";
-import Icon from "./Icon";
-import AppText from "./AppText";
-import IconType from "../enums/icons";
 import routes from "../enums/routes";
 import useCopy from "../hooks/useCopy";
 import SuggestionHomeItem from "./SuggestionHomeItem";

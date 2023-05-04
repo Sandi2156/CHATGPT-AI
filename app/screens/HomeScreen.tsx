@@ -35,9 +35,6 @@ export default function HomeScreen() {
 			</View>
 
 			<View style={styles.suggestionContainer}>
-				{/* {suggestionsHomeList.map((item, index) => (
-					<SuggestionHome {...item} key={index} />
-				))} */}
 				<SuggestionHomeCopy />
 			</View>
 		</Screen>
