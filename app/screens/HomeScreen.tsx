@@ -9,6 +9,7 @@ import SuggestionHome from "../components/SuggestionHome";
 import buttonList from "../data/buttonList";
 import suggestionsHomeList from "../data/suggestionsHomeList";
 import ChatHomeBar from "../components/chat/ChatHomeBar";
+import SuggestionHomeCopy from "../components/SuggestionHomeCopy";
 
 export default function HomeScreen() {
 	const one = buttonList.slice(0, 4);
@@ -34,9 +35,10 @@ export default function HomeScreen() {
 			</View>
 
 			<View style={styles.suggestionContainer}>
-				{suggestionsHomeList.map((item, index) => (
+				{/* {suggestionsHomeList.map((item, index) => (
 					<SuggestionHome {...item} key={index} />
-				))}
+				))} */}
+				<SuggestionHomeCopy />
 			</View>
 		</Screen>
 	);

@@ -32,16 +32,16 @@ export default function HomeSectionButton({
 			}
 			style={styles.container}
 		>
-			<Shadow>
-				<View
-					style={[
-						styles.iconContainer,
-						{ backgroundColor: colors[backgroundColor] },
-					]}
-				>
-					{IconComponent}
-				</View>
-			</Shadow>
+			{/* <Shadow> */}
+			<View
+				style={[
+					styles.iconContainer,
+					{ backgroundColor: colors[backgroundColor] },
+				]}
+			>
+				{IconComponent}
+			</View>
+			{/* </Shadow> */}
 
 			<AppText>{title}</AppText>
 		</TouchableOpacity>
