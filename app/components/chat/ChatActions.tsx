@@ -32,6 +32,14 @@ export default function ChatActions({ text }: { text: string }) {
 }
 
 const styles = StyleSheet.create({
-	container: { flexDirection: "row" },
-	iconContainer: { marginRight: 10 },
+	container: { flexDirection: "row", alignItems: "center" },
+	iconContainer: {
+		marginRight: 10,
+		// backgroundColor: "red",
+		height: 30,
+		width: 30,
+		justifyContent: "center",
+		alignItems: "center",
+		borderRadius: 15,
+	},
 });

@@ -84,8 +84,9 @@ const styles = StyleSheet.create({
 	actionsContainer: {
 		// backgroundColor: "red",
 		// marginBottom: 10,
-		paddingVertical: 10,
+		paddingVertical: 3,
 		marginHorizontal: 10,
 		paddingHorizontal: 10,
+		marginBottom: 10,
 	},
 });
