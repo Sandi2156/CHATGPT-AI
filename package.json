@@ -27,7 +27,8 @@
     "react-native-shadow-2": "^7.0.7",
     "react-native-svg": "12.3.0",
     "react-native-uuid": "^2.0.1",
-    "expo-clipboard": "~3.1.0"
+    "expo-clipboard": "~3.1.0",
+    "expo-speech": "~10.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",

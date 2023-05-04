@@ -7,6 +7,7 @@ import {
 	FontAwesome,
 	AntDesign,
 	Feather,
+	Entypo,
 } from "@expo/vector-icons";
 
 import IconType from "../enums/icons";
@@ -38,6 +39,8 @@ export default function Icon(props: PropsType) {
 				return AntDesign;
 			case IconType.FEATHER:
 				return Feather;
+			case IconType.ENTYPO:
+				return Entypo;
 		}
 	};
 

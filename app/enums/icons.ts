@@ -7,6 +7,7 @@ enum IconType {
 	FONTAWESOME = "FontAwesome",
 	ANTDESIGN = "AntDesign",
 	FEATHER = "Feather",
+	ENTYPO = "Entypo",
 }
 
 export default IconType;

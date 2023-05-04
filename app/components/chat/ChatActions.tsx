@@ -3,6 +3,7 @@ import React from "react";
 
 import useCopy from "../../hooks/useCopy";
 import useShare from "../../hooks/useShare";
+import useSpeak from "../../hooks/useSpeak";
 import Icon from "../Icon";
 
 import IconType from "../../enums/icons";
@@ -10,6 +11,7 @@ import IconType from "../../enums/icons";
 export default function ChatActions({ text }: { text: string }) {
 	const { done, copy } = useCopy();
 	const { share } = useShare();
+	const { speak } = useSpeak();
 
 	return (
 		<View style={styles.container}>
@@ -18,6 +20,13 @@ export default function ChatActions({ text }: { text: string }) {
 				style={styles.iconContainer}
 			>
 				<Icon name="share" type={IconType.FEATHER} />
+			</TouchableOpacity>
+
+			<TouchableOpacity
+				onPress={() => speak(text)}
+				style={styles.iconContainer}
+			>
+				<Icon name="sound" type={IconType.ANTDESIGN} />
 			</TouchableOpacity>
 
 			<TouchableOpacity onPress={() => copy(text)}>
@@ -34,7 +43,7 @@ export default function ChatActions({ text }: { text: string }) {
 const styles = StyleSheet.create({
 	container: { flexDirection: "row", alignItems: "center" },
 	iconContainer: {
-		marginRight: 10,
+		marginRight: 8,
 		// backgroundColor: "red",
 		height: 30,
 		width: 30,

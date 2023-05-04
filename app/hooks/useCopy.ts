@@ -1,5 +1,5 @@
 import copyToClipboard from "../utility/copy";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const useCopy = () => {
 	const [done, setDone] = useState(false);
