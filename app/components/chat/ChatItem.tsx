@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import Lottie from "lottie-react-native";
 
 import colors from "../../constants/colors";
+import ChatActions from "./ChatActions";
 
 type PropsType = { user: { _id: number; content: string } };
 export default function ChatItem({ user }: PropsType) {
@@ -18,10 +19,23 @@ export default function ChatItem({ user }: PropsType) {
 		);
 
 	return (
-		<View
-			style={user._id === 2 ? styles.chat_container : styles.user_container}
-		>
-			<Text style={styles.text}>{user.content}</Text>
+		<View style={{ scaleY: -1 }}>
+			<View
+				style={user._id === 2 ? styles.chat_container : styles.user_container}
+			>
+				<Text style={styles.text}>{user.content}</Text>
+			</View>
+
+			<View
+				style={[
+					styles.actionsContainer,
+					user._id === 2
+						? { alignSelf: "flex-start" }
+						: { alignSelf: "flex-end" },
+				]}
+			>
+				<ChatActions text={user.content} />
+			</View>
 		</View>
 	);
 }
@@ -34,14 +48,13 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		backgroundColor: colors.black,
 		maxWidth: "80%",
-		marginBottom: 10,
+		// marginBottom: 10,
 		marginLeft: 10,
 		borderRadius: 10,
 		width: "auto",
 		alignSelf: "flex-start",
-		scaleY: -1,
 	},
-	text: { color: colors.white, width: "auto" },
+	text: { color: colors.white, width: "auto", fontSize: 16 },
 	user_container: {
 		paddingHorizontal: 20,
 		paddingVertical: 15,
@@ -49,12 +62,11 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		backgroundColor: "#b785f5",
 		maxWidth: "80%",
-		marginBottom: 10,
+		// marginBottom: 10,
 		marginRight: 10,
 		borderRadius: 10,
 		width: "auto",
 		alignSelf: "flex-end",
-		scaleY: -1,
 	},
 	lottie_container: {
 		paddingHorizontal: 5,
@@ -68,5 +80,12 @@ const styles = StyleSheet.create({
 		width: "auto",
 		alignSelf: "flex-start",
 		scaleY: -1,
+	},
+	actionsContainer: {
+		// backgroundColor: "red",
+		// marginBottom: 10,
+		paddingVertical: 10,
+		marginHorizontal: 10,
+		paddingHorizontal: 10,
 	},
 });

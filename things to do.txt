@@ -9,7 +9,7 @@ priority
 * add loading while waiting for reply (done)
 1. add placeholder : ask me anything (done)
 * add markdown handler (halt for now)
-* add copy button in SuggestionHome component
+* add copy button in SuggestionHome component (done)
 2. add google speech to text
 3. sharing the whole chat
 4. guide

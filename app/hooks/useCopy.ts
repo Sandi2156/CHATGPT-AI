@@ -14,6 +14,7 @@ const useCopy = () => {
 			}, 2000);
 		} catch (error) {
 			setDone(false);
+			console.log(error);
 		}
 	};
 
