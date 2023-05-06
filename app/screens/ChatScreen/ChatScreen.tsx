@@ -2,13 +2,25 @@ import React, { useState, useEffect } from "react";
 import { View, FlatList, StyleSheet } from "react-native";
 import uuid from "react-native-uuid";
 
-import chatApi from "../../api/chat";
-
 import ChatItem from "./components/ChatItem";
 import ChatBox from "../../components/ChatBox";
+import AppText from "../../components/AppText";
+import DropDownPicker from "../../components/DropDownPicker";
+
 import colors from "../../constants/colors";
 import SectionType from "../../enums/sections";
-import AppText from "../../components/AppText";
+import chatApi from "../../api/chat";
+
+const data = [
+	{ label: "Item 1", value: "1" },
+	{ label: "Item 2", value: "2" },
+	{ label: "Item 3", value: "3" },
+	{ label: "Item 4", value: "4" },
+	{ label: "Item 5", value: "5" },
+	{ label: "Item 6", value: "6" },
+	{ label: "Item 7", value: "7" },
+	{ label: "Item 8", value: "8" },
+];
 
 type Messagetype = {
 	_id: string;
@@ -24,8 +36,6 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 	const question = params?.question;
 	const section = params?.section;
 
-	console.log(section);
-
 	const [messages, setMessages] = useState<Array<Messagetype>>([
 		{
 			_id: `${uuid.v4()}`,
@@ -34,6 +44,7 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 	]);
 	const [gptMessages, setGptMessages] = useState<Array<GptMessagetype>>([]);
 	const [text, setText] = useState("");
+	const [value, setValue] = useState<null | string>(null);
 
 	const handleOnPress = () => {
 		setText("");
@@ -76,7 +87,17 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 		<View>
 			<View style={styles.chatViewContainer}>
 				{section === SectionType.LANGUAGE_CONVERTER && (
-					<AppText style={{ backgroundColor: "red" }}>Hi</AppText>
+					<View style={{ justifyContent: "center", alignItems: "center" }}>
+						<DropDownPicker
+							data={data}
+							onChange={(value: string) => setValue(value)}
+							value={value}
+						/>
+
+						<AppText>to</AppText>
+
+						{/* <DropDownPicker /> */}
+					</View>
 				)}
 
 				<FlatList
