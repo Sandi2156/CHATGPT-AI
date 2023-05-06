@@ -4,6 +4,7 @@ enum routes {
 	SUGGESTIONS = "SUGGESTIONS",
 	HOME_TAB = "HOME_TAB",
 	GENERAL_CHAT_TAB = "GENERAL_CHAT_TAB",
+	LANGUAGE_SECTION = "LANGUAGE_SECTION",
 }
 
 export default routes;

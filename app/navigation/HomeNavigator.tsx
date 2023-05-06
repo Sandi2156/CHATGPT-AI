@@ -1,12 +1,13 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import ChatScreen from "../screens/ChatScreen";
+import ChatScreen from "../screens/ChatScreen/ChatScreen";
 
 import routes from "../enums/routes";
 import TabNavigator from "./TabNavigator";
 import Screen from "../components/Screen";
 import AppHeader from "../components/AppHeader";
-import SuggestionsScreen from "../screens/Suggestions";
+import SuggestionsScreen from "../screens/SuggestionScreen/SuggestionsScreen";
+import LanguageInnerSectionScreen from "../screens/LanguageInnerScreen/LanguageInnerSectionScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +31,22 @@ export default function HomeNavigator() {
 								options={options}
 								route={route}
 								back={back}
+							/>
+						),
+					})}
+				/>
+
+				<Stack.Screen
+					name={routes.LANGUAGE_SECTION}
+					component={LanguageInnerSectionScreen}
+					options={({ navigation }) => ({
+						header: ({ navigation, options, route, back }) => (
+							<AppHeader
+								navigation={navigation}
+								options={options}
+								route={route}
+								back={back}
+								showSuggestionsIcon
 							/>
 						),
 					})}

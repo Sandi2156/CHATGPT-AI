@@ -8,6 +8,8 @@ import {
 	AntDesign,
 	Feather,
 	Entypo,
+	Fontisto,
+	SimpleLineIcons,
 } from "@expo/vector-icons";
 
 import IconType from "../enums/icons";
@@ -41,6 +43,10 @@ export default function Icon(props: PropsType) {
 				return Feather;
 			case IconType.ENTYPO:
 				return Entypo;
+			case IconType.FONTISTO:
+				return Fontisto;
+			case IconType.SIMPLELINE:
+				return SimpleLineIcons;
 		}
 	};
 

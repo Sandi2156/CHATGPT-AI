@@ -4,9 +4,9 @@ import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { Shadow } from "react-native-shadow-2";
 
-import colors from "../constants/colors";
-import routes from "../enums/routes";
-import AppText from "./AppText";
+import colors from "../../../constants/colors";
+import routes from "../../../enums/routes";
+import AppText from "../../../components/AppText";
 
 type AppButtonProps = {
 	title: string;
@@ -20,18 +20,21 @@ export default function HomeSectionButton({
 	IconComponent,
 }: AppButtonProps) {
 	const SUGGESTIONS = routes.SUGGESTIONS;
-	const navigation =
-		useNavigation<
-			NativeStackNavigationProp<{ SUGGESTIONS: { section: string } }>
-		>();
+	const LANGUAGE_SECTION = routes.LANGUAGE_SECTION;
+
+	const navigation = useNavigation();
+
+	const handlePress = () => {
+		if (title === "Language")
+			return navigation.navigate(LANGUAGE_SECTION, {
+				section: title.toUpperCase(),
+			});
+
+		navigation.navigate(SUGGESTIONS, { section: title.toUpperCase() });
+	};
 
 	return (
-		<TouchableOpacity
-			onPress={() =>
-				navigation.navigate(SUGGESTIONS, { section: title.toUpperCase() })
-			}
-			style={styles.container}
-		>
+		<TouchableOpacity onPress={handlePress} style={styles.container}>
 			{/* <Shadow> */}
 			<View
 				style={[

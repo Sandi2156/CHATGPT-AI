@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
-import colors from "../constants/colors";
-import AppText from "./AppText";
+import colors from "../../../constants/colors";
+import AppText from "../../../components/AppText";
 
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import routes from "../enums/routes";
+import routes from "../../../enums/routes";
 
 export default function SuggestionItem({
 	title,

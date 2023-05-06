@@ -8,6 +8,8 @@ enum IconType {
 	ANTDESIGN = "AntDesign",
 	FEATHER = "Feather",
 	ENTYPO = "Entypo",
+	FONTISTO = "Fontisto",
+	SIMPLELINE = "SimpleLineIcons",
 }
 
 export default IconType;

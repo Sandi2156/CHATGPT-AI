@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import Lottie from "lottie-react-native";
 
-import colors from "../../constants/colors";
+import colors from "../../../constants/colors";
 import ChatActions from "./ChatActions";
 
 type PropsType = { user: { _id: number; content: string } };
@@ -10,7 +10,7 @@ export default function ChatItem({ user }: PropsType) {
 		return (
 			<View style={styles.lottie_container}>
 				<Lottie
-					source={require("../../../assets/animations/97930-loading.json")}
+					source={require("../../../../assets/animations/97930-loading.json")}
 					autoPlay
 					loop
 					style={{ height: 50, width: 50 }}

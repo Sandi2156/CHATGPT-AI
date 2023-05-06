@@ -1,13 +1,13 @@
 import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, FlatList, View, TouchableOpacity } from "react-native";
 
-import colors from "../constants/colors";
-import suggestionsList from "../data/suggestionsList";
-import IconType from "../enums/icons";
-import routes from "../enums/routes";
+import colors from "../../constants/colors";
+import suggestionsList from "../../data/suggestionsList";
+import IconType from "../../enums/icons";
+import routes from "../../enums/routes";
 
-import SuggestionItem from "../components/SuggestionItem";
-import Icon from "../components/Icon";
+import SuggestionItem from "./components/SuggestionItem";
+import Icon from "../../components/Icon";
 
 export default function SuggestionsScreen({ route }: { route: any }) {
 	const { section }: { section: keyof typeof suggestionsList } = route.params;

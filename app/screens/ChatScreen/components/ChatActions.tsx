@@ -1,13 +1,13 @@
 import { StyleSheet, View, Pressable } from "react-native";
 import React from "react";
 
-import useCopy from "../../hooks/useCopy";
-import useShare from "../../hooks/useShare";
-import useSpeak from "../../hooks/useSpeak";
-import Icon from "../Icon";
+import useCopy from "../../../hooks/useCopy";
+import useShare from "../../../hooks/useShare";
+import useSpeak from "../../../hooks/useSpeak";
+import Icon from "../../../components/Icon";
 
-import IconType from "../../enums/icons";
-import colors from "../../constants/colors";
+import IconType from "../../../enums/icons";
+import colors from "../../../constants/colors";
 
 export default function ChatActions({ text }: { text: string }) {
 	const { done, copy } = useCopy();

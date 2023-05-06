@@ -5,7 +5,7 @@ import routes from "../enums/routes";
 import colors from "../constants/colors";
 import TabBarIcon from "../components/TabBarIcon";
 import AccountScreen from "../screens/AccountScreen";
-import HomeScreen from "../screens/HomeScreen";
+import HomeScreen from "../screens/HomeScreen/HomeScreen";
 
 const Tab = createBottomTabNavigator();
 
