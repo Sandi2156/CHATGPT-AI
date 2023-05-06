@@ -7,6 +7,8 @@ import chatApi from "../../api/chat";
 import ChatItem from "./components/ChatItem";
 import ChatBox from "../../components/ChatBox";
 import colors from "../../constants/colors";
+import SectionType from "../../enums/sections";
+import AppText from "../../components/AppText";
 
 type Messagetype = {
 	_id: string;
@@ -20,6 +22,9 @@ type PropsType = { navigation: any; route: any };
 export default function ChatScreen({ navigation, route }: PropsType) {
 	const params = route.params;
 	const question = params?.question;
+	const section = params?.section;
+
+	console.log(section);
 
 	const [messages, setMessages] = useState<Array<Messagetype>>([
 		{
@@ -70,6 +75,10 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 	return (
 		<View>
 			<View style={styles.chatViewContainer}>
+				{section === SectionType.LANGUAGE_CONVERTER && (
+					<AppText style={{ backgroundColor: "red" }}>Hi</AppText>
+				)}
+
 				<FlatList
 					data={messages}
 					keyExtractor={(item) => item._id}
