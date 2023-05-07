@@ -11,16 +11,9 @@ import colors from "../../constants/colors";
 import SectionType from "../../enums/sections";
 import chatApi from "../../api/chat";
 
-const data = [
-	{ label: "Item 1", value: "1" },
-	{ label: "Item 2", value: "2" },
-	{ label: "Item 3", value: "3" },
-	{ label: "Item 4", value: "4" },
-	{ label: "Item 5", value: "5" },
-	{ label: "Item 6", value: "6" },
-	{ label: "Item 7", value: "7" },
-	{ label: "Item 8", value: "8" },
-];
+import languages from "../../data/languages";
+import Icon from "../../components/Icon";
+import IconType from "../../enums/icons";
 
 type Messagetype = {
 	_id: string;
@@ -36,15 +29,49 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 	const question = params?.question;
 	const section = params?.section;
 
-	const [messages, setMessages] = useState<Array<Messagetype>>([
-		{
+	const getFirstMessage: () => Array<Messagetype> = () => {
+		const message = {
 			_id: `${uuid.v4()}`,
-			user: { _id: 2, content: "Hi, How can I assist you today !" },
-		},
-	]);
+			user: {
+				_id: 2,
+				content: "",
+			},
+		};
+
+		switch (section) {
+			case SectionType.LANGUAGE_CONVERTER:
+				message.user.content =
+					"Select From -> To ☝🏻 || If your language is not up there you can write your custom message like this `language1 -> language2: message in language1`";
+				break;
+			case SectionType.LANGUAGE_COVER_LETTER:
+				message.user.content = "Paste your CV details";
+				break;
+			case SectionType.LANGUAGE_SUMMARIZE:
+				message.user.content = "Paste your paragraph";
+				break;
+			case SectionType.LANGUAGE_ESSAY:
+				message.user.content = "Please tell me the topic";
+				break;
+			case SectionType.LANGUAGE_REPHRASE:
+				message.user.content = "Paste your paragraph";
+				break;
+			case SectionType.LANGUAGE_GRAMMARLY:
+				message.user.content = "Give me the sentence or para";
+				break;
+			default:
+				message.user.content = "Hi, How can I assist you today !";
+				break;
+		}
+		return [message];
+	};
+
+	const [messages, setMessages] = useState<Array<Messagetype>>(
+		getFirstMessage()
+	);
 	const [gptMessages, setGptMessages] = useState<Array<GptMessagetype>>([]);
 	const [text, setText] = useState("");
-	const [value, setValue] = useState<null | string>(null);
+	const [fromLanguage, setFromLanguage] = useState<string>("Custom");
+	const [toLanguage, setToLanguage] = useState<string>("Custom");
 
 	const handleOnPress = () => {
 		setText("");
@@ -87,16 +114,26 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 		<View>
 			<View style={styles.chatViewContainer}>
 				{section === SectionType.LANGUAGE_CONVERTER && (
-					<View style={{ justifyContent: "center", alignItems: "center" }}>
+					<View
+						style={{
+							flexDirection: "row",
+							alignItems: "center",
+							justifyContent: "space-around",
+						}}
+					>
 						<DropDownPicker
-							data={data}
-							onChange={(value: string) => setValue(value)}
-							value={value}
+							data={languages}
+							onChange={(value: string) => setFromLanguage(value)}
+							value={fromLanguage}
 						/>
 
-						<AppText>to</AppText>
+						<Icon name="arrowright" type={IconType.ANTDESIGN} />
 
-						{/* <DropDownPicker /> */}
+						<DropDownPicker
+							data={languages}
+							onChange={(value: string) => setToLanguage(value)}
+							value={toLanguage}
+						/>
 					</View>
 				)}
 

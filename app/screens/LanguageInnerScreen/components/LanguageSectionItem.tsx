@@ -40,14 +40,15 @@ const styles = StyleSheet.create({
 		width: 120,
 		height: 120,
 		alignItems: "center",
-		padding: 10,
+		paddingVertical: 10,
 		justifyContent: "space-around",
 		borderRadius: 20,
 	},
 	text: {
 		color: colors.black,
 		width: "100%",
-		fontSize: 10,
+		fontSize: 12,
+		paddingHorizontal: 2,
 		textAlign: "center",
 	},
 });

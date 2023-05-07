@@ -44,7 +44,7 @@ const DropdownComponent = (props: PropsType) => {
 			maxHeight={300}
 			labelField="label"
 			valueField="value"
-			placeholder="Select Language"
+			placeholder="Custom"
 			searchPlaceholder="Search..."
 			value={value}
 			onChange={(item) => {
@@ -63,9 +63,9 @@ const styles = StyleSheet.create({
 	dropdown: {
 		margin: 16,
 		height: 50,
-		width: "60%",
+		width: "35%",
 		backgroundColor: colors.black,
-		borderRadius: 16,
+		borderRadius: 10,
 		padding: 12,
 		shadowColor: "#000",
 		color: colors.medium,
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
 	textItem: {
 		flex: 1,
 		fontSize: 16,
-		color: colors.medium,
+		color: colors.lightSky,
 		textAlign: "center",
 	},
 	placeholderStyle: {
@@ -100,7 +100,8 @@ const styles = StyleSheet.create({
 	},
 	selectedTextStyle: {
 		fontSize: 16,
-		color: colors.medium,
+		color: colors.lightGreen,
+		textAlign: "center",
 	},
 	iconStyle: {
 		width: 20,
@@ -112,7 +113,8 @@ const styles = StyleSheet.create({
 		color: colors.medium,
 		borderColor: colors.black,
 		backgroundColor: colors.background,
-		borderRadius: 10,
+		borderRadius: 6,
+		overflow: "hidden",
 	},
 	itemContainerStyle: { backgroundColor: colors.black },
 	containerStyle: {
