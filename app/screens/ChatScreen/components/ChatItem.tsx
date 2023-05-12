@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
 		paddingVertical: 8,
 		justifyContent: "center",
 		alignItems: "center",
-		backgroundColor: "#b785f5",
+		backgroundColor: "#be29ec",
 		maxWidth: "80%",
 		// marginBottom: 10,
 		marginRight: 10,

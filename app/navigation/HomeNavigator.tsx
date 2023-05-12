@@ -46,6 +46,7 @@ export default function HomeNavigator() {
 							options={options}
 							route={route}
 							back={back}
+							backgroundColor={colors.black}
 						/>
 					),
 				})}

@@ -1,4 +1,4 @@
-import { StyleSheet, View, FlatList } from "react-native";
+import { StyleSheet, View, FlatList, StatusBar } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import LanguageSectionItem from "./components/LanguageSectionItem";
@@ -17,6 +17,8 @@ export default function LanguageInnerSectionScreen() {
 
 	return (
 		<View style={styles.container}>
+			<StatusBar backgroundColor={colors.black} barStyle="light-content" />
+
 			<FlatList
 				data={languageSectionList}
 				keyExtractor={(item) => item.title}
@@ -33,7 +35,7 @@ export default function LanguageInnerSectionScreen() {
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: colors.background,
+		backgroundColor: colors.black,
 		flex: 1,
 		paddingVertical: 20,
 	},
