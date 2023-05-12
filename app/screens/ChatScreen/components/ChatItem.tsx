@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
 		width: "auto",
 		alignSelf: "flex-start",
 	},
-	text: { color: colors.white, width: "auto", fontSize: 16 },
+	text: { color: colors.light, width: "auto", fontSize: 16 },
 	user_container: {
 		paddingHorizontal: 20,
 		paddingVertical: 15,

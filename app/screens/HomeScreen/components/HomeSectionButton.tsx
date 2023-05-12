@@ -46,7 +46,7 @@ export default function HomeSectionButton({
 			</View>
 			{/* </Shadow> */}
 
-			<AppText>{title}</AppText>
+			<AppText style={{ fontWeight: "400" }}>{title}</AppText>
 		</TouchableOpacity>
 	);
 }
