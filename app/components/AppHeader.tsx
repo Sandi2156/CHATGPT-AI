@@ -4,6 +4,7 @@ import React from "react";
 import AppText from "./AppText";
 import Icon from "./Icon";
 import IconType from "../enums/icons";
+import colors from "../constants/colors";
 
 type PropsType = {
 	navigation: any;
@@ -11,6 +12,7 @@ type PropsType = {
 	options: any;
 	back: any;
 	showSuggestionsIcon?: boolean;
+	backgroundColor?: string;
 };
 export default function AppHeader({
 	navigation,
@@ -18,9 +20,10 @@ export default function AppHeader({
 	options,
 	back,
 	showSuggestionsIcon = false,
+	backgroundColor = colors.background,
 }: PropsType) {
 	return (
-		<View style={styles.container}>
+		<View style={[styles.container, { backgroundColor: backgroundColor }]}>
 			<TouchableOpacity
 				onPress={() => (back ? navigation.goBack() : null)}
 				style={styles.backContainer}

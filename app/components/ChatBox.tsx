@@ -20,6 +20,7 @@ type PropsType = {
 	text?: string;
 	multiline?: boolean;
 	autoFocus?: boolean;
+	backgroundColor?: string;
 };
 export default function ChatBox(props: PropsType) {
 	const {
@@ -29,12 +30,13 @@ export default function ChatBox(props: PropsType) {
 		multiline = false,
 		onChageText,
 		text,
+		backgroundColor = colors.black,
 	} = props;
 
 	const navigation = useNavigation();
 
 	return (
-		<View style={styles.inputContainer}>
+		<View style={[styles.inputContainer, { backgroundColor: backgroundColor }]}>
 			<TextInput
 				style={styles.input}
 				placeholder="Ask me anything !"
@@ -62,7 +64,6 @@ export default function ChatBox(props: PropsType) {
 const styles = StyleSheet.create({
 	inputContainer: {
 		alignSelf: "center",
-		backgroundColor: colors.black,
 		width: "90%",
 		height: 50,
 		borderRadius: 15,
@@ -83,7 +84,8 @@ const styles = StyleSheet.create({
 	input: {
 		flex: 1,
 		height: "100%",
-		color: "#b0afb1",
+		color: colors.light,
 		fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
+		fontSize: 16,
 	},
 });

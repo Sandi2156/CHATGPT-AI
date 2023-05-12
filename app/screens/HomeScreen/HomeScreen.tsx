@@ -1,4 +1,4 @@
-import { StyleSheet, View, TouchableOpacity } from "react-native";
+import { StyleSheet, View, TouchableOpacity, StatusBar } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import Screen from "../../components/Screen";
@@ -11,6 +11,7 @@ import buttonList from "../../data/buttonList";
 import suggestionsHomeList from "../../data/suggestionsHomeList";
 import suggestionsList from "../../data/suggestionsList";
 import routes from "../../enums/routes";
+import colors from "../../constants/colors";
 
 export default function HomeScreen() {
 	const one = buttonList.slice(0, 4);
@@ -21,6 +22,8 @@ export default function HomeScreen() {
 
 	return (
 		<Screen isScrollable>
+			<StatusBar backgroundColor={colors.background} barStyle="light-content" />
+
 			<Banner />
 
 			<TouchableOpacity

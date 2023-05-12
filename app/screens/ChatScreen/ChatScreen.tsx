@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, FlatList, StyleSheet } from "react-native";
+import { View, FlatList, StyleSheet, StatusBar } from "react-native";
 import uuid from "react-native-uuid";
 
 import ChatItem from "./components/ChatItem";
@@ -112,6 +112,8 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 
 	return (
 		<View>
+			<StatusBar backgroundColor="black" barStyle="light-content" />
+
 			<View style={styles.chatViewContainer}>
 				{section === SectionType.LANGUAGE_CONVERTER && (
 					<View
@@ -156,6 +158,7 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 					multiline
 					onChageText={(text: string) => setText(text)}
 					text={text}
+					backgroundColor={colors.background}
 				/>
 			</View>
 		</View>
@@ -166,7 +169,7 @@ const styles = StyleSheet.create({
 	chatInputContainer: {
 		height: "10%",
 		alignItems: "center",
-		backgroundColor: colors.background,
+		backgroundColor: colors.black,
 	},
-	chatViewContainer: { height: "90%", backgroundColor: colors.background },
+	chatViewContainer: { height: "90%", backgroundColor: colors.black },
 });
