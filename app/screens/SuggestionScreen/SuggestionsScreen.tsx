@@ -8,6 +8,7 @@ import routes from "../../enums/routes";
 
 import SuggestionItem from "./components/SuggestionItem";
 import Icon from "../../components/Icon";
+import SkipButton from "../../components/SkipButton";
 
 export default function SuggestionsScreen({ route }: { route: any }) {
 	const { section }: { section: keyof typeof suggestionsList } = route.params;
@@ -21,7 +22,7 @@ export default function SuggestionsScreen({ route }: { route: any }) {
 
 	return (
 		<View style={styles.container}>
-			<View style={styles.skip_container}>
+			{/* <View style={styles.skip_container}>
 				<TouchableOpacity
 					style={styles.skip_button}
 					onPress={() => navigation.navigate(routes.CHAT)}
@@ -33,7 +34,7 @@ export default function SuggestionsScreen({ route }: { route: any }) {
 						color="black"
 					/>
 				</TouchableOpacity>
-			</View>
+			</View> */}
 
 			<FlatList
 				data={suggestions}
@@ -43,6 +44,8 @@ export default function SuggestionsScreen({ route }: { route: any }) {
 				keyExtractor={(item) => item}
 				style={{ flex: 1, backgroundColor: colors.background }}
 			/>
+
+			<SkipButton onClick={() => navigation.navigate(routes.CHAT)} />
 		</View>
 	);
 }
@@ -51,6 +54,7 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: colors.background,
+		position: "relative",
 	},
 	skip_container: {
 		flexDirection: "row",

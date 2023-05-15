@@ -7,6 +7,7 @@ import ItemSeperator from "../../components/ItemSeperator";
 import languageSectionList from "../../data/languageSectionList";
 import colors from "../../constants/colors";
 import routes from "../../enums/routes";
+import SkipButton from "../../components/SkipButton";
 
 export default function LanguageInnerSectionScreen() {
 	const navigation = useNavigation();
@@ -29,6 +30,8 @@ export default function LanguageInnerSectionScreen() {
 				columnWrapperStyle={styles.columnWrapperStyle}
 				ItemSeparatorComponent={ItemSeperator}
 			/>
+
+			<SkipButton onClick={() => navigation.navigate(routes.CHAT)} />
 		</View>
 	);
 }
@@ -38,6 +41,7 @@ const styles = StyleSheet.create({
 		backgroundColor: colors.black,
 		flex: 1,
 		paddingVertical: 20,
+		position: "relative",
 	},
 	columnWrapperStyle: { justifyContent: "space-evenly" },
 });

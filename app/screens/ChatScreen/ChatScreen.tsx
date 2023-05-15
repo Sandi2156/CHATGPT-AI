@@ -40,23 +40,25 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 
 		switch (section) {
 			case SectionType.LANGUAGE_CONVERTER:
-				message.user.content =
-					"Select From -> To ☝🏻 || If your language is not up there you can write your custom message like this `language1 -> language2: message in language1`";
+				message.user.content = "Select From -> To ☝🏻";
 				break;
 			case SectionType.LANGUAGE_COVER_LETTER:
 				message.user.content = "Paste your CV details";
 				break;
 			case SectionType.LANGUAGE_SUMMARIZE:
-				message.user.content = "Paste your paragraph";
+				message.user.content =
+					"Please provide me with the topic that you would like me to summarize.";
 				break;
 			case SectionType.LANGUAGE_ESSAY:
-				message.user.content = "Please tell me the topic";
+				message.user.content = "What is the topic of your essay?";
 				break;
 			case SectionType.LANGUAGE_REPHRASE:
-				message.user.content = "Paste your paragraph";
+				message.user.content =
+					"Paste provide me the sentence or passage that you want me to rephrase";
 				break;
 			case SectionType.LANGUAGE_GRAMMARLY:
-				message.user.content = "Give me the sentence or para";
+				message.user.content =
+					"Give me a sentence or para, I will find mistakes if any and will give you different ways to write it";
 				break;
 			default:
 				message.user.content = "Hi, How can I assist you today !";
@@ -88,9 +90,13 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 				});
 			case SectionType.LANGUAGE_COVER_LETTER:
 			case SectionType.LANGUAGE_SUMMARIZE:
+				return chatApi.summarize({ messages });
 			case SectionType.LANGUAGE_ESSAY:
+				return chatApi.giveEssay({ messages });
 			case SectionType.LANGUAGE_REPHRASE:
+				return chatApi.rephrase({ messages });
 			case SectionType.LANGUAGE_GRAMMARLY:
+				return chatApi.grammarly({ messages });
 			default:
 				return chatApi.getResponseChat("gpt-3.5-turbo", messages);
 		}
