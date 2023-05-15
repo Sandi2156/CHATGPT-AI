@@ -70,12 +70,30 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 	);
 	const [gptMessages, setGptMessages] = useState<Array<GptMessagetype>>([]);
 	const [text, setText] = useState("");
-	const [fromLanguage, setFromLanguage] = useState<string>("Custom");
-	const [toLanguage, setToLanguage] = useState<string>("Custom");
+	const [fromLanguage, setFromLanguage] = useState<string>("Hindi");
+	const [toLanguage, setToLanguage] = useState<string>("English");
 
 	const handleOnPress = () => {
 		setText("");
 		sendMessage(text);
+	};
+
+	const sendToChatGpt = (messages: Array<GptMessagetype>) => {
+		switch (section) {
+			case SectionType.LANGUAGE_CONVERTER:
+				return chatApi.convertLanguage({
+					messages: messages,
+					from: fromLanguage,
+					to: toLanguage,
+				});
+			case SectionType.LANGUAGE_COVER_LETTER:
+			case SectionType.LANGUAGE_SUMMARIZE:
+			case SectionType.LANGUAGE_ESSAY:
+			case SectionType.LANGUAGE_REPHRASE:
+			case SectionType.LANGUAGE_GRAMMARLY:
+			default:
+				return chatApi.getResponseChat("gpt-3.5-turbo", messages);
+		}
 	};
 
 	const sendMessage = async (text: string) => {
@@ -90,8 +108,7 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 		setMessages(local);
 
 		const req = [...gptMessages, { role: "user", content: text }];
-		// console.log(req);
-		const response = await chatApi.getResponseChat("gpt-3.5-turbo", req);
+		const response = await sendToChatGpt(req);
 
 		if (!response.ok) return;
 
