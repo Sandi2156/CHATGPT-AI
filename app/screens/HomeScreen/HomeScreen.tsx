@@ -66,7 +66,14 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-	listContainer: { paddingHorizontal: 20, marginVertical: 10 },
+	listContainer: {
+		marginHorizontal: 15,
+		marginVertical: 25,
+		backgroundColor: "#44464A",
+		borderRadius: 15,
+		paddingVertical: 10,
+		paddingHorizontal: 10,
+	},
 	suggestionContainer: { marginBottom: 20 },
 	row: {
 		flexDirection: "row",

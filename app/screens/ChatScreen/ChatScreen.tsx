@@ -4,7 +4,6 @@ import uuid from "react-native-uuid";
 
 import ChatItem from "./components/ChatItem";
 import ChatBox from "../../components/ChatBox";
-import AppText from "../../components/AppText";
 import DropDownPicker from "../../components/DropDownPicker";
 
 import colors from "../../constants/colors";

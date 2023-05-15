@@ -13,13 +13,7 @@ type PropsType = {
 	bgColor?: string;
 };
 export default function LanguageSectionItem(props: PropsType) {
-	const {
-		iconName,
-		iconType,
-		title,
-		onPress,
-		bgColor = colors.lightSky,
-	} = props;
+	const { iconName, iconType, title, onPress, bgColor = "#A9CEC2" } = props;
 
 	return (
 		<TouchableOpacity
