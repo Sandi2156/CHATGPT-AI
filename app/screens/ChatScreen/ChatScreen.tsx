@@ -189,9 +189,9 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 
 const styles = StyleSheet.create({
 	chatInputContainer: {
-		height: "10%",
+		height: "15%",
 		alignItems: "center",
 		backgroundColor: colors.black,
 	},
-	chatViewContainer: { height: "90%", backgroundColor: colors.black },
+	chatViewContainer: { height: "85%", backgroundColor: colors.black },
 });

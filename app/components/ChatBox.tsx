@@ -4,6 +4,7 @@ import {
 	TouchableOpacity,
 	TextInput,
 	Platform,
+	KeyboardAvoidingView,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
@@ -36,28 +37,32 @@ export default function ChatBox(props: PropsType) {
 	const navigation = useNavigation();
 
 	return (
-		<View style={[styles.inputContainer, { backgroundColor: backgroundColor }]}>
-			<TextInput
-				style={styles.input}
-				placeholder="Ask me anything !"
-				placeholderTextColor={colors.medium}
-				pointerEvents="none"
-				editable={editable}
-				value={text}
-				onChangeText={onChageText}
-				multiline={multiline}
-				autoFocus={autoFocus}
-			/>
-
-			<TouchableOpacity style={styles.sendButton} onPress={onPressSend}>
-				<Icon
-					name="paper-plane"
-					type={IconType.FONTAWESOME5}
-					size={16}
-					color={colors.black}
+		<KeyboardAvoidingView behavior="height">
+			<View
+				style={[styles.inputContainer, { backgroundColor: backgroundColor }]}
+			>
+				<TextInput
+					style={styles.input}
+					placeholder="Ask me anything !"
+					placeholderTextColor={colors.medium}
+					pointerEvents="none"
+					editable={editable}
+					value={text}
+					onChangeText={onChageText}
+					multiline={multiline}
+					autoFocus={autoFocus}
 				/>
-			</TouchableOpacity>
-		</View>
+
+				<TouchableOpacity style={styles.sendButton} onPress={onPressSend}>
+					<Icon
+						name="paper-plane"
+						type={IconType.FONTAWESOME5}
+						size={16}
+						color={colors.black}
+					/>
+				</TouchableOpacity>
+			</View>
+		</KeyboardAvoidingView>
 	);
 }
 
