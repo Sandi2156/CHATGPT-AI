@@ -12,6 +12,7 @@ import suggestionsHomeList from "../../data/suggestionsHomeList";
 import suggestionsList from "../../data/suggestionsList";
 import routes from "../../enums/routes";
 import colors from "../../constants/colors";
+import AppBannerAd from "../../components/ads/BannerAd";
 
 export default function HomeScreen() {
 	const one = buttonList.slice(0, 4);
@@ -61,6 +62,8 @@ export default function HomeScreen() {
 					/>
 				))}
 			</View>
+
+			{/* <AppBannerAd /> */}
 		</Screen>
 	);
 }
