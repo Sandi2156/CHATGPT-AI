@@ -27,6 +27,16 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 	const params = route.params;
 	const question = params?.question;
 	const section = params?.section;
+	const ingredients = params?.ingredients;
+
+	const selectInitialInputText = () => {
+		switch (section) {
+			case SectionType.COOKING_DISH_GENERATOR:
+				return ingredients.join(", ");
+			default:
+				return "";
+		}
+	};
 
 	const getFirstMessage: () => Array<Messagetype> = () => {
 		const message = {
@@ -76,6 +86,9 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 			case SectionType.COOKING_RECIPE:
 				message.user.content = "Write the name of the dish !";
 				break;
+			case SectionType.COOKING_DISH_GENERATOR:
+				message.user.content = "Please add extra ingredients if you want !";
+				break;
 			default:
 				message.user.content = "Hi, How can I assist you today !";
 				break;
@@ -87,7 +100,7 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 		getFirstMessage()
 	);
 	const [gptMessages, setGptMessages] = useState<Array<GptMessagetype>>([]);
-	const [text, setText] = useState("");
+	const [text, setText] = useState(selectInitialInputText());
 	const [fromLanguage, setFromLanguage] = useState<string>("Hindi");
 	const [toLanguage, setToLanguage] = useState<string>("English");
 	const [dsaLanguage, setDsaLanguage] = useState<string>("Java");
@@ -124,6 +137,8 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 				return chatApi.generateWebsiteTemplate({ messages });
 			case SectionType.COOKING_RECIPE:
 				return chatApi.generateRecipe({ messages });
+			case SectionType.COOKING_DISH_GENERATOR:
+				return chatApi.generateDish({ messages });
 			default:
 				return chatApi.getResponseChat("gpt-3.5-turbo", messages);
 		}

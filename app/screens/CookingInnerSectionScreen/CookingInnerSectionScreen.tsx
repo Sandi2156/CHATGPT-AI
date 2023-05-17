@@ -8,11 +8,15 @@ import cookingInnerSectionList from "../../data/cookingInnerSectionList";
 import colors from "../../constants/colors";
 import routes from "../../enums/routes";
 import SkipButton from "../../components/SkipButton";
+import SectionType from "../../enums/sections";
 
 export default function CookingInnerSectionScreen() {
 	const navigation = useNavigation();
 
 	const handlePress = (item: (typeof cookingInnerSectionList)[0]) => {
+		if (item.section === SectionType.COOKING_DISH_GENERATOR)
+			return navigation.navigate(routes.INGREDIENTS, { section: item.section });
+
 		navigation.navigate(routes.CHAT, { section: item.section });
 	};
 
