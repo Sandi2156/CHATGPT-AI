@@ -7,30 +7,38 @@ import { Shadow } from "react-native-shadow-2";
 import colors from "../../../constants/colors";
 import routes from "../../../enums/routes";
 import AppText from "../../../components/AppText";
+import SectionType from "../../../enums/sections";
 
 type AppButtonProps = {
 	title: string;
 	backgroundColor: keyof typeof colors;
 	IconComponent: React.ReactNode;
+	section: SectionType;
 };
 
 export default function HomeSectionButton({
 	title,
 	backgroundColor,
 	IconComponent,
+	section,
 }: AppButtonProps) {
 	const SUGGESTIONS = routes.SUGGESTIONS;
-	const LANGUAGE_SECTION = routes.LANGUAGE_SECTION;
 
 	const navigation = useNavigation();
 
 	const handlePress = () => {
-		if (title === "Language")
-			return navigation.navigate(LANGUAGE_SECTION, {
-				section: title.toUpperCase(),
-			});
-
-		navigation.navigate(SUGGESTIONS, { section: title.toUpperCase() });
+		switch (section) {
+			case SectionType.LANGUAGE:
+				return navigation.navigate(routes.LANGUAGE_SECTION, {
+					section,
+				});
+			case SectionType.CODING:
+				return navigation.navigate(routes.CODING_INNER_SECTION, {
+					section,
+				});
+			default:
+				return navigation.navigate(SUGGESTIONS, { section });
+		}
 	};
 
 	return (

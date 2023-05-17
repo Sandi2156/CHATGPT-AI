@@ -53,11 +53,25 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 				break;
 			case SectionType.LANGUAGE_REPHRASE:
 				message.user.content =
-					"Paste provide me the sentence or passage that you want me to rephrase";
+					"provide me the sentence or passage that you want me to rephrase";
 				break;
 			case SectionType.LANGUAGE_GRAMMARLY:
 				message.user.content =
 					"Give me a sentence or para, I will find mistakes if any and will give you different ways to write it";
+				break;
+			case SectionType.CODING_DSA:
+				message.user.content = "Paste your question down below.";
+				break;
+			case SectionType.CODING_ERROR_FINDER:
+				message.user.content =
+					"Provide me the code that you want me to find error from";
+				break;
+			case SectionType.CODING_CODE_OPTIMIZATION:
+				message.user.content =
+					"Paste the code that you want to optimize down below";
+				break;
+			case SectionType.CODING_WEBSITE_TEMPLATE:
+				message.user.content = "Provide the requirements of your website";
 				break;
 			default:
 				message.user.content = "Hi, How can I assist you today !";
@@ -96,6 +110,14 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 				return chatApi.rephrase({ messages });
 			case SectionType.LANGUAGE_GRAMMARLY:
 				return chatApi.grammarly({ messages });
+			case SectionType.CODING_DSA:
+				return chatApi.solveDsa({ messages });
+			case SectionType.CODING_ERROR_FINDER:
+				return chatApi.findErrorInCode({ messages });
+			case SectionType.CODING_CODE_OPTIMIZATION:
+				return chatApi.optimizeCode({ messages });
+			case SectionType.CODING_WEBSITE_TEMPLATE:
+				return chatApi.generateWebsiteTemplate({ messages });
 			default:
 				return chatApi.getResponseChat("gpt-3.5-turbo", messages);
 		}

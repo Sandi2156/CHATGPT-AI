@@ -9,11 +9,13 @@ import {
 
 const iconSize = 30;
 import colors from "../constants/colors";
+import SectionType from "../enums/sections";
 
 const buttonList: Array<{
 	title: string;
 	backgroundColor: keyof typeof colors;
 	IconComponent: React.ReactNode;
+	section: SectionType;
 }> = [
 	{
 		title: "Health",
@@ -25,6 +27,7 @@ const buttonList: Array<{
 				color={colors["secondary"]}
 			/>
 		),
+		section: SectionType.HEALTH,
 	},
 	{
 		title: "Fitness",
@@ -36,6 +39,7 @@ const buttonList: Array<{
 			/>
 		),
 		backgroundColor: "lightDark",
+		section: SectionType.FITNESS,
 	},
 	{
 		title: "Language",
@@ -43,6 +47,7 @@ const buttonList: Array<{
 			<FontAwesome name="language" size={iconSize} color={colors["primary"]} />
 		),
 		backgroundColor: "lightDark",
+		section: SectionType.LANGUAGE,
 	},
 	{
 		title: "Coding",
@@ -54,6 +59,7 @@ const buttonList: Array<{
 			/>
 		),
 		backgroundColor: "lightDark",
+		section: SectionType.CODING,
 	},
 	{
 		title: "Reciepe",
@@ -65,6 +71,7 @@ const buttonList: Array<{
 			/>
 		),
 		backgroundColor: "lightDark",
+		section: SectionType.RECIPE,
 	},
 	{
 		title: "History",
@@ -76,6 +83,7 @@ const buttonList: Array<{
 			/>
 		),
 		backgroundColor: "lightDark",
+		section: SectionType.HISTORY,
 	},
 	{
 		title: "Query",
@@ -83,6 +91,7 @@ const buttonList: Array<{
 			<Fontisto name="mysql" size={iconSize} color={colors["sky"]} />
 		),
 		backgroundColor: "lightDark",
+		section: SectionType.QUERY,
 	},
 	{
 		title: "Travel",
@@ -90,6 +99,7 @@ const buttonList: Array<{
 			<SimpleLineIcons name="plane" size={iconSize} color={colors["rose"]} />
 		),
 		backgroundColor: "lightDark",
+		section: SectionType.TRAVEL,
 	},
 ];
 

@@ -140,6 +140,116 @@ const grammarly = async ({
 	}
 };
 
+const solveDsa = async ({
+	model = "gpt-3.5-turbo",
+	messages,
+	language = "java and python",
+}: {
+	model?: string;
+	language?: string;
+	messages: Array<object>;
+}) => {
+	try {
+		const customMessages = [...messages];
+		const reqMessage = customMessages[customMessages.length - 1];
+		reqMessage.content =
+			`Solve the dsa question ` + `in ${language} : ` + reqMessage.content;
+
+		console.log(customMessages);
+
+		const response = await apiClient.post("", {
+			model,
+			messages: customMessages,
+		});
+
+		return response;
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+const findErrorInCode = async ({
+	model = "gpt-3.5-turbo",
+	error,
+	messages,
+}: {
+	model?: string;
+	error?: string;
+	messages: Array<object>;
+}) => {
+	try {
+		const customMessages = [...messages];
+		const reqMessage = customMessages[customMessages.length - 1];
+		reqMessage.content = !error
+			? `Find error in the given code if any : ` + reqMessage.content
+			: `Find error in the given code where the error is ${error}` +
+			  reqMessage.content;
+
+		console.log(customMessages);
+
+		const response = await apiClient.post("", {
+			model,
+			messages: customMessages,
+		});
+
+		return response;
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+const optimizeCode = async ({
+	model = "gpt-3.5-turbo",
+	messages,
+}: {
+	model?: string;
+	messages: Array<object>;
+}) => {
+	try {
+		const customMessages = [...messages];
+		const reqMessage = customMessages[customMessages.length - 1];
+		reqMessage.content = `Optimize the code : ` + reqMessage.content;
+
+		console.log(customMessages);
+
+		const response = await apiClient.post("", {
+			model,
+			messages: customMessages,
+		});
+
+		return response;
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+const generateWebsiteTemplate = async ({
+	model = "gpt-3.5-turbo",
+	messages,
+}: {
+	model?: string;
+	messages: Array<object>;
+}) => {
+	try {
+		const customMessages = [...messages];
+		const reqMessage = customMessages[customMessages.length - 1];
+		reqMessage.content =
+			`I want to create a website. Generate a wesite template where the description of the website is : ` +
+			reqMessage.content;
+
+		console.log(customMessages);
+
+		const response = await apiClient.post("", {
+			model,
+			messages: customMessages,
+		});
+
+		return response;
+	} catch (error) {
+		console.log(error);
+	}
+};
+
 const chatApi = {
 	getResponseChat,
 	convertLanguage,
@@ -147,6 +257,10 @@ const chatApi = {
 	giveEssay,
 	rephrase,
 	grammarly,
+	solveDsa,
+	findErrorInCode,
+	optimizeCode,
+	generateWebsiteTemplate,
 };
 
 export default chatApi;

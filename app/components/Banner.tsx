@@ -23,15 +23,15 @@ export default function Banner({ onPress }: { onPress: () => void }) {
 
 const styles = StyleSheet.create({
 	container: {
-		height: 180,
 		width: 320,
+		height: 150,
 		overflow: "hidden",
 		alignSelf: "center",
 		backgroundColor: colors.medium,
 		borderRadius: 10,
 	},
 	img: {
-		height: 180,
+		height: 150,
 		width: 320,
 	},
 });
