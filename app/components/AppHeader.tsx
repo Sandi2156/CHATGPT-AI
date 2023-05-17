@@ -5,6 +5,7 @@ import AppText from "./AppText";
 import Icon from "./Icon";
 import IconType from "../enums/icons";
 import colors from "../constants/colors";
+import routes from "../enums/routes";
 
 type PropsType = {
 	navigation: any;
@@ -22,6 +23,15 @@ export default function AppHeader({
 	showSuggestionsIcon = false,
 	backgroundColor = colors.background,
 }: PropsType) {
+	const getHeader = () => {
+		switch (route.name) {
+			case routes.CODING_INNER_SECTION:
+				return "coding";
+			default:
+				return route.name.toLowerCase();
+		}
+	};
+
 	return (
 		<View style={[styles.container, { backgroundColor: backgroundColor }]}>
 			<TouchableOpacity
@@ -31,7 +41,7 @@ export default function AppHeader({
 				<Icon name="chevron-back" type={IconType.ION} size={25} />
 
 				<AppText style={{ fontSize: 20, marginLeft: 10 }}>
-					{route.name.toLowerCase()}
+					{getHeader()}
 				</AppText>
 			</TouchableOpacity>
 

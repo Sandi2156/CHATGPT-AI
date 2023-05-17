@@ -12,14 +12,14 @@ type ListType = Array<{
 const codingInnerSectionList: ListType = [
 	{
 		title: "DSA",
-		iconName: "language",
-		iconType: IconType.FONTISTO,
+		iconName: "free-code-camp",
+		iconType: IconType.FONTAWESOME5,
 		section: SectionType.CODING_DSA,
 	},
 	{
 		title: "Error Finder",
-		iconName: "envelope-letter",
-		iconType: IconType.SIMPLELINE,
+		iconName: "error-outline",
+		iconType: IconType.MATERIAL,
 		section: SectionType.CODING_ERROR_FINDER,
 	},
 	{
@@ -30,8 +30,8 @@ const codingInnerSectionList: ListType = [
 	},
 	{
 		title: "Website Template",
-		iconName: "calculator",
-		iconType: IconType.ANTDESIGN,
+		iconName: "web",
+		iconType: IconType.MATERIAL,
 		section: SectionType.CODING_WEBSITE_TEMPLATE,
 	},
 ];
