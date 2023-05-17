@@ -14,10 +14,11 @@ export default function TabNavigator() {
 		<Tab.Navigator
 			screenOptions={({ route }) => ({
 				headerShown: false,
-				tabBarActiveBackgroundColor: colors.background,
-				tabBarInactiveBackgroundColor: colors.background,
+				tabBarActiveBackgroundColor: "#44464A",
+				tabBarInactiveBackgroundColor: "#44464A",
 				tabBarShowLabel: false,
 				tabBarStyle: { borderTopWidth: 0, height: 60 },
+
 				tabBarIcon: ({ focused, size }) => {
 					if (route.name === routes.HOME_TAB)
 						return (
@@ -25,7 +26,11 @@ export default function TabNavigator() {
 								focused={focused}
 								size={size}
 								iconComponent={
-									<Octicons name="home" color={colors.medium} size={size} />
+									<Octicons
+										name="home"
+										color={!focused ? colors.lightSky : colors.medium}
+										size={size}
+									/>
 								}
 							/>
 						);
@@ -37,7 +42,7 @@ export default function TabNavigator() {
 							iconComponent={
 								<MaterialIcons
 									name="person-outline"
-									color={colors.medium}
+									color={!focused ? colors.lightSky : colors.medium}
 									size={size}
 								/>
 							}

@@ -25,7 +25,7 @@ export default function HomeScreen() {
 		<Screen isScrollable>
 			<StatusBar backgroundColor={colors.background} barStyle="light-content" />
 
-			<Banner />
+			<Banner onPress={() => navigation.navigate(routes.CHAT as never)} />
 
 			<TouchableOpacity
 				onPress={() => navigation.navigate(routes.CHAT as never)}
