@@ -87,6 +87,7 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 	const [text, setText] = useState("");
 	const [fromLanguage, setFromLanguage] = useState<string>("Hindi");
 	const [toLanguage, setToLanguage] = useState<string>("English");
+	const [dsaLanguage, setDsaLanguage] = useState<string>("Java");
 
 	const handleOnPress = () => {
 		setText("");
@@ -111,7 +112,7 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 			case SectionType.LANGUAGE_GRAMMARLY:
 				return chatApi.grammarly({ messages });
 			case SectionType.CODING_DSA:
-				return chatApi.solveDsa({ messages });
+				return chatApi.solveDsa({ messages, language: dsaLanguage });
 			case SectionType.CODING_ERROR_FINDER:
 				return chatApi.findErrorInCode({ messages });
 			case SectionType.CODING_CODE_OPTIMIZATION:
@@ -168,7 +169,7 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 						}}
 					>
 						<DropDownPicker
-							data={languages}
+							data={languages.speakingLanguages}
 							onChange={(value: string) => setFromLanguage(value)}
 							value={fromLanguage}
 						/>
@@ -176,7 +177,7 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 						<Icon name="arrowright" type={IconType.ANTDESIGN} />
 
 						<DropDownPicker
-							data={languages}
+							data={languages.speakingLanguages}
 							onChange={(value: string) => setToLanguage(value)}
 							value={toLanguage}
 						/>
@@ -203,7 +204,18 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 					onChageText={(text: string) => setText(text)}
 					text={text}
 					backgroundColor={colors.background}
+					width={SectionType.CODING_DSA === section ? "60%" : "90%"}
 				/>
+
+				{SectionType.CODING_DSA === section && (
+					<DropDownPicker
+						data={languages.codingLanguages}
+						onChange={(value: string) => setDsaLanguage(value)}
+						value={dsaLanguage}
+						width="30%"
+						showSearch={false}
+					/>
+				)}
 			</View>
 		</View>
 	);
@@ -214,6 +226,8 @@ const styles = StyleSheet.create({
 		height: "15%",
 		alignItems: "center",
 		backgroundColor: colors.black,
+		flexDirection: "row",
+		justifyContent: "center",
 	},
 	chatViewContainer: { height: "85%", backgroundColor: colors.black },
 });

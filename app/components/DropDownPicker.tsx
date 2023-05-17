@@ -7,9 +7,11 @@ type PropsType = {
 	data: Array<{ label: string; value: string }>;
 	value: string | null;
 	onChange: (value: string) => void;
+	width?: string;
+	showSearch?: boolean;
 };
 const DropdownComponent = (props: PropsType) => {
-	const { data, onChange, value } = props;
+	const { data, onChange, value, width = "35%", showSearch = true } = props;
 
 	const renderItem = (item: PropsType["data"][0]) => {
 		return (
@@ -33,14 +35,14 @@ const DropdownComponent = (props: PropsType) => {
 
 	return (
 		<Dropdown
-			style={styles.dropdown}
+			style={[styles.dropdown, { width }]}
 			placeholderStyle={styles.placeholderStyle}
 			selectedTextStyle={styles.selectedTextStyle}
 			inputSearchStyle={styles.inputSearchStyle}
 			itemContainerStyle={styles.itemContainerStyle}
 			containerStyle={styles.containerStyle}
 			data={data}
-			search
+			search={showSearch}
 			maxHeight={300}
 			labelField="label"
 			valueField="value"
@@ -63,7 +65,6 @@ const styles = StyleSheet.create({
 	dropdown: {
 		margin: 16,
 		height: 50,
-		width: "35%",
 		backgroundColor: colors.background,
 		borderRadius: 10,
 		padding: 12,

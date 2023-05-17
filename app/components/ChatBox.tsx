@@ -22,6 +22,7 @@ type PropsType = {
 	multiline?: boolean;
 	autoFocus?: boolean;
 	backgroundColor?: string;
+	width?: string;
 };
 export default function ChatBox(props: PropsType) {
 	const {
@@ -32,44 +33,45 @@ export default function ChatBox(props: PropsType) {
 		onChageText,
 		text,
 		backgroundColor = colors.black,
+		width = "90%",
 	} = props;
 
 	const navigation = useNavigation();
 
 	return (
-		<KeyboardAvoidingView behavior="height">
-			<View
-				style={[styles.inputContainer, { backgroundColor: backgroundColor }]}
-			>
-				<TextInput
-					style={styles.input}
-					placeholder="Ask me anything !"
-					placeholderTextColor={colors.medium}
-					pointerEvents="none"
-					editable={editable}
-					value={text}
-					onChangeText={onChageText}
-					multiline={multiline}
-					autoFocus={autoFocus}
-				/>
+		<View
+			style={[
+				styles.inputContainer,
+				{ backgroundColor: backgroundColor, width },
+			]}
+		>
+			<TextInput
+				style={styles.input}
+				placeholder="Ask me anything !"
+				placeholderTextColor={colors.medium}
+				pointerEvents="none"
+				editable={editable}
+				value={text}
+				onChangeText={onChageText}
+				multiline={multiline}
+				autoFocus={autoFocus}
+			/>
 
-				<TouchableOpacity style={styles.sendButton} onPress={onPressSend}>
-					<Icon
-						name="paper-plane"
-						type={IconType.FONTAWESOME5}
-						size={16}
-						color={colors.black}
-					/>
-				</TouchableOpacity>
-			</View>
-		</KeyboardAvoidingView>
+			<TouchableOpacity style={styles.sendButton} onPress={onPressSend}>
+				<Icon
+					name="paper-plane"
+					type={IconType.FONTAWESOME5}
+					size={16}
+					color={colors.black}
+				/>
+			</TouchableOpacity>
+		</View>
 	);
 }
 
 const styles = StyleSheet.create({
 	inputContainer: {
 		alignSelf: "center",
-		width: "90%",
 		height: 50,
 		borderRadius: 15,
 		padding: 5,
