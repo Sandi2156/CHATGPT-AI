@@ -62,7 +62,7 @@ const buttonList: Array<{
 		section: SectionType.CODING,
 	},
 	{
-		title: "Reciepe",
+		title: "Cooking",
 		IconComponent: (
 			<MaterialCommunityIcons
 				name="spoon-sugar"
@@ -71,7 +71,7 @@ const buttonList: Array<{
 			/>
 		),
 		backgroundColor: "lightDark",
-		section: SectionType.RECIPE,
+		section: SectionType.COOKING,
 	},
 	{
 		title: "History",

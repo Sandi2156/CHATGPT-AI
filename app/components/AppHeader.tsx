@@ -27,6 +27,8 @@ export default function AppHeader({
 		switch (route.name) {
 			case routes.CODING_INNER_SECTION:
 				return "coding";
+			case routes.COOKING_INNER_SECTION:
+				return "cooking";
 			default:
 				return route.name.toLowerCase();
 		}

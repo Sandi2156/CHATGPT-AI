@@ -41,7 +41,7 @@ const suggestionsHomeList: Array<{
 		iconType: IconType.MATERIALCOMMUNITY,
 		title: "Give a receipe on chicken butter masala ",
 		titleBackground: colors.orange,
-		section: "RECIEPE",
+		section: "COOKING",
 	},
 ];
 

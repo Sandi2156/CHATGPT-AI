@@ -22,7 +22,7 @@ const suggestionsList = {
 	],
 	LANGUAGE: ["convert this bengali to english: ami tomake valobasi"],
 	CODING: ["write a c++ code which will print fibonacci sequence"],
-	RECIEPE: [
+	COOKING: [
 		"write a reciepe on chicken butter masala",
 		"reciepe on chicken tikka",
 		"receipe on motton curry",

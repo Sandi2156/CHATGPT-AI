@@ -73,6 +73,9 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 			case SectionType.CODING_WEBSITE_TEMPLATE:
 				message.user.content = "Provide the requirements of your website";
 				break;
+			case SectionType.COOKING_RECIPE:
+				message.user.content = "Write the name of the dish !";
+				break;
 			default:
 				message.user.content = "Hi, How can I assist you today !";
 				break;
@@ -119,6 +122,8 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 				return chatApi.optimizeCode({ messages });
 			case SectionType.CODING_WEBSITE_TEMPLATE:
 				return chatApi.generateWebsiteTemplate({ messages });
+			case SectionType.COOKING_RECIPE:
+				return chatApi.generateRecipe({ messages });
 			default:
 				return chatApi.getResponseChat("gpt-3.5-turbo", messages);
 		}

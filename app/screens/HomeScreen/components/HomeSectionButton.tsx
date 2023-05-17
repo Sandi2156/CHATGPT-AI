@@ -36,6 +36,10 @@ export default function HomeSectionButton({
 				return navigation.navigate(routes.CODING_INNER_SECTION, {
 					section,
 				});
+			case SectionType.COOKING:
+				return navigation.navigate(routes.COOKING_INNER_SECTION, {
+					section,
+				});
 			default:
 				return navigation.navigate(SUGGESTIONS, { section });
 		}
