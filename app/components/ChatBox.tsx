@@ -7,6 +7,7 @@ import {
 	KeyboardAvoidingView,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import Lottie from "lottie-react-native";
 
 import Icon from "./Icon";
 
@@ -23,6 +24,7 @@ type PropsType = {
 	autoFocus?: boolean;
 	backgroundColor?: string;
 	width?: string;
+	showAnimation?: boolean;
 };
 export default function ChatBox(props: PropsType) {
 	const {
@@ -34,6 +36,7 @@ export default function ChatBox(props: PropsType) {
 		text,
 		backgroundColor = colors.black,
 		width = "90%",
+		showAnimation = false,
 	} = props;
 
 	const navigation = useNavigation();
@@ -57,14 +60,37 @@ export default function ChatBox(props: PropsType) {
 				autoFocus={autoFocus}
 			/>
 
-			<TouchableOpacity style={styles.sendButton} onPress={onPressSend}>
-				<Icon
-					name="paper-plane"
-					type={IconType.FONTAWESOME5}
-					size={16}
-					color={colors.black}
-				/>
-			</TouchableOpacity>
+			{showAnimation ? (
+				<View
+					style={{
+						borderRadius: 8,
+						overflow: "hidden",
+						justifyContent: "center",
+						alignItems: "center",
+						backgroundColor: colors.danger,
+					}}
+				>
+					<Lottie
+						source={require("../../assets/animations/send2.json")}
+						autoPlay
+						loop
+						style={{
+							height: 35,
+							width: 35,
+							backgroundColor: colors.lightYellow,
+						}}
+					/>
+				</View>
+			) : (
+				<TouchableOpacity style={styles.sendButton} onPress={onPressSend}>
+					<Icon
+						name="paper-plane"
+						type={IconType.FONTAWESOME5}
+						size={16}
+						color={colors.black}
+					/>
+				</TouchableOpacity>
+			)}
 		</View>
 	);
 }

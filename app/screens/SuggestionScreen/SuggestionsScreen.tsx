@@ -17,25 +17,11 @@ export default function SuggestionsScreen({ route }: { route: any }) {
 
 	const getRotationDeg = (index: number) => {
 		if (index == 0) return "0deg";
-		return index > 0 && index % 2 === 0 ? "1deg" : "-1deg";
+		return index > 0 && index % 2 === 0 ? "0.5deg" : "-0.5deg";
 	};
 
 	return (
 		<View style={styles.container}>
-			{/* <View style={styles.skip_container}>
-				<TouchableOpacity
-					style={styles.skip_button}
-					onPress={() => navigation.navigate(routes.CHAT)}
-				>
-					<Icon
-						name="fastforward"
-						type={IconType.ANTDESIGN}
-						size={15}
-						color="black"
-					/>
-				</TouchableOpacity>
-			</View> */}
-
 			<FlatList
 				data={suggestions}
 				renderItem={({ item, index }) => (

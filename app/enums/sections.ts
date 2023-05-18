@@ -16,9 +16,9 @@ enum SectionType {
 	COOKING = "Cooking",
 	COOKING_RECIPE = "COOKING_RECIPE",
 	COOKING_DISH_GENERATOR = "COOKING_DISH_GENERATOR",
-	HISTORY = "History",
-	QUERY = "Query",
-	TRAVEL = "Travel",
+	HISTORY = "HISTORY",
+	QUERY = "QUERY",
+	TRAVEL = "TRAVEL",
 }
 
 export default SectionType;

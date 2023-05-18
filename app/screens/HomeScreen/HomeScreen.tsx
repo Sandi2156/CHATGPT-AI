@@ -31,7 +31,11 @@ export default function HomeScreen() {
 				onPress={() => navigation.navigate(routes.CHAT as never)}
 				style={styles.generalChatInputContainer}
 			>
-				<ChatBox onPressSend={onPressGeneralChatBar} editable={false} />
+				<ChatBox
+					onPressSend={onPressGeneralChatBar}
+					editable={false}
+					showAnimation={true}
+				/>
 			</TouchableOpacity>
 
 			<View style={styles.listContainer}>
