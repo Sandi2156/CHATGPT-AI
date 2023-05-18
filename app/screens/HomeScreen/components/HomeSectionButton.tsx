@@ -29,15 +29,9 @@ export default function HomeSectionButton({
 	const handlePress = () => {
 		switch (section) {
 			case SectionType.LANGUAGE:
-				return navigation.navigate(routes.LANGUAGE_SECTION, {
-					section,
-				});
 			case SectionType.CODING:
-				return navigation.navigate(routes.CODING_INNER_SECTION, {
-					section,
-				});
 			case SectionType.COOKING:
-				return navigation.navigate(routes.COOKING_INNER_SECTION, {
+				return navigation.navigate(routes.SECTION_INNER_SECTION, {
 					section,
 				});
 			default:

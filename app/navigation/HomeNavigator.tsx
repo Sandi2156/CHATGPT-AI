@@ -6,12 +6,10 @@ import routes from "../enums/routes";
 import TabNavigator from "./TabNavigator";
 import AppHeader from "../components/AppHeader";
 import SuggestionsScreen from "../screens/SuggestionScreen/SuggestionsScreen";
-import LanguageInnerSectionScreen from "../screens/LanguageInnerScreen/LanguageInnerSectionScreen";
 
 import colors from "../constants/colors";
-import CodingInnerSectionScreen from "../screens/CodingInnerSectionScreen/CodingInnerSectionScreen";
-import CookingInnerSectionScreen from "../screens/CookingInnerSectionScreen/CookingInnerSectionScreen";
 import IngredientsScreen from "../screens/IngredientsScreen/IngredientsScreen";
+import InnerSectionScreen from "../screens/InnserSectionScreen/InnerSectionScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -40,40 +38,8 @@ export default function HomeNavigator() {
 			/>
 
 			<Stack.Screen
-				name={routes.LANGUAGE_SECTION}
-				component={LanguageInnerSectionScreen}
-				options={({ navigation }) => ({
-					header: ({ navigation, options, route, back }) => (
-						<AppHeader
-							navigation={navigation}
-							options={options}
-							route={route}
-							back={back}
-							backgroundColor={colors.black}
-						/>
-					),
-				})}
-			/>
-
-			<Stack.Screen
-				name={routes.CODING_INNER_SECTION}
-				component={CodingInnerSectionScreen}
-				options={({ navigation }) => ({
-					header: ({ navigation, options, route, back }) => (
-						<AppHeader
-							navigation={navigation}
-							options={options}
-							route={route}
-							back={back}
-							backgroundColor={colors.black}
-						/>
-					),
-				})}
-			/>
-
-			<Stack.Screen
-				name={routes.COOKING_INNER_SECTION}
-				component={CookingInnerSectionScreen}
+				name={routes.SECTION_INNER_SECTION}
+				component={InnerSectionScreen}
 				options={({ navigation }) => ({
 					header: ({ navigation, options, route, back }) => (
 						<AppHeader
