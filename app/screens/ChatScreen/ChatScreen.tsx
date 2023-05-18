@@ -87,7 +87,10 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 				message.user.content = "Write the name of the dish !";
 				break;
 			case SectionType.COOKING_DISH_GENERATOR:
-				message.user.content = "Please add extra ingredients if you want !";
+				message.user.content = "Feel free add extra ingredients if you want !";
+				break;
+			case SectionType.SQL_QUERY:
+				message.user.content = "Provide your query !";
 				break;
 			default:
 				message.user.content = "Hi, How can I assist you today !";
@@ -139,6 +142,8 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 				return chatApi.generateRecipe({ messages });
 			case SectionType.COOKING_DISH_GENERATOR:
 				return chatApi.generateDish({ messages });
+			case SectionType.SQL_QUERY:
+				return chatApi.solveQuery({ messages });
 			default:
 				return chatApi.getResponseChat("gpt-3.5-turbo", messages);
 		}

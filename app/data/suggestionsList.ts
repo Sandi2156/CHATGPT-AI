@@ -39,7 +39,7 @@ const suggestionsList = {
 		"Who were the main participants and outcomes of the Civil War in the United States?",
 		"What were the main causes and consequences of the Holocaust during World War II?",
 	],
-	QUERY: ["Write a sql query on second largest number in a dataset"],
+	SQL: ["Write a sql query on second largest number in a dataset"],
 	TRAVEL: [
 		"What are the best places in India?",
 		"What are some must-visit destinations for adventure seekers?",

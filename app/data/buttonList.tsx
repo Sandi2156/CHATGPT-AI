@@ -86,12 +86,12 @@ const buttonList: Array<{
 		section: SectionType.HISTORY,
 	},
 	{
-		title: "Query",
+		title: "SQL",
 		IconComponent: (
 			<Fontisto name="mysql" size={iconSize} color={colors["sky"]} />
 		),
 		backgroundColor: "lightDark",
-		section: SectionType.QUERY,
+		section: SectionType.SQL,
 	},
 	{
 		title: "Travel",

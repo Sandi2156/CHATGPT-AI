@@ -6,6 +6,8 @@ import ItemSeperator from "../../components/ItemSeperator";
 import codingInnerSectionList from "../../data/codingInnserSectionList";
 import cookingInnerSectionList from "../../data/cookingInnerSectionList";
 import languageSectionList from "../../data/languageSectionList";
+import sqlInnerSectionList from "../../data/sqlInnerSectionList";
+
 import colors from "../../constants/colors";
 import routes from "../../enums/routes";
 import SkipButton from "../../components/SkipButton";
@@ -28,6 +30,8 @@ export default function InnerSectionScreen({
 				return cookingInnerSectionList;
 			case SectionType.LANGUAGE:
 				return languageSectionList;
+			case SectionType.SQL:
+				return sqlInnerSectionList;
 			default:
 				break;
 		}

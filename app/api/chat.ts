@@ -303,6 +303,31 @@ const generateDish = async ({
 	}
 };
 
+const solveQuery = async ({
+	model = "gpt-3.5-turbo",
+	messages,
+}: {
+	model?: string;
+	messages: Array<object>;
+}) => {
+	try {
+		const customMessages = [...messages];
+		const reqMessage = customMessages[customMessages.length - 1];
+		reqMessage.content = "Solve the sql query : " + reqMessage.content;
+
+		console.log(customMessages);
+
+		const response = await apiClient.post("", {
+			model,
+			messages: customMessages,
+		});
+
+		return response;
+	} catch (error) {
+		console.log(error);
+	}
+};
+
 const chatApi = {
 	getResponseChat,
 	convertLanguage,
@@ -316,6 +341,7 @@ const chatApi = {
 	generateWebsiteTemplate,
 	generateRecipe,
 	generateDish,
+	solveQuery,
 };
 
 export default chatApi;
