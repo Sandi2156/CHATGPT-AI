@@ -7,6 +7,7 @@ import codingInnerSectionList from "../../data/codingInnserSectionList";
 import cookingInnerSectionList from "../../data/cookingInnerSectionList";
 import languageSectionList from "../../data/languageSectionList";
 import sqlInnerSectionList from "../../data/sqlInnerSectionList";
+import healthInnerSectionList from "../../data/healthInnerSectionList";
 
 import colors from "../../constants/colors";
 import routes from "../../enums/routes";
@@ -32,6 +33,8 @@ export default function InnerSectionScreen({
 				return languageSectionList;
 			case SectionType.SQL:
 				return sqlInnerSectionList;
+			case SectionType.HEALTH:
+				return healthInnerSectionList;
 			default:
 				break;
 		}

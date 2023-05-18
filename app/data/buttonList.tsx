@@ -30,18 +30,6 @@ const buttonList: Array<{
 		section: SectionType.HEALTH,
 	},
 	{
-		title: "Fitness",
-		IconComponent: (
-			<MaterialCommunityIcons
-				name="dumbbell"
-				size={iconSize}
-				color={colors["yellow"]}
-			/>
-		),
-		backgroundColor: "lightDark",
-		section: SectionType.FITNESS,
-	},
-	{
 		title: "Language",
 		IconComponent: (
 			<FontAwesome name="language" size={iconSize} color={colors["primary"]} />

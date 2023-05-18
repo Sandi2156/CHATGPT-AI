@@ -1,5 +1,7 @@
 enum SectionType {
 	HEALTH = "Health",
+	HEALTH_DISEASE = "HEALTH_DISEASE",
+	HEALTH_CALCULATORS = "HEALTH_CALCULATORS",
 	FITNESS = "Fitness",
 	LANGUAGE = "Language",
 	LANGUAGE_CONVERTER = "Language Converter",

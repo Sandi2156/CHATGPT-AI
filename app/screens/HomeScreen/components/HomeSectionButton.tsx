@@ -32,6 +32,7 @@ export default function HomeSectionButton({
 			case SectionType.CODING:
 			case SectionType.COOKING:
 			case SectionType.SQL:
+			case SectionType.HEALTH:
 				return navigation.navigate(routes.SECTION_INNER_SECTION, {
 					section,
 				});

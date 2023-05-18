@@ -96,6 +96,9 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 				message.user.content =
 					"Paste the question and respective query that you want me to find error from !";
 				break;
+			case SectionType.HEALTH_DISEASE:
+				message.user.content = "Name any Disease !";
+				break;
 			default:
 				message.user.content = "Hi, How can I assist you today !";
 				break;
@@ -151,6 +154,8 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 				return chatApi.solveQuery({ messages });
 			case SectionType.SQL_ERROR_FINDER:
 				return chatApi.findErrorInQuery({ messages });
+			case SectionType.HEALTH_DISEASE:
+				return chatApi.letsKnowAboutDisease({ messages });
 			default:
 				return chatApi.getResponseChat("gpt-3.5-turbo", messages);
 		}
