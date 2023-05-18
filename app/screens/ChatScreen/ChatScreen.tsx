@@ -111,6 +111,7 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 	const [fromLanguage, setFromLanguage] = useState<string>("Hindi");
 	const [toLanguage, setToLanguage] = useState<string>("English");
 	const [dsaLanguage, setDsaLanguage] = useState<string>("Java");
+	const [isSending, setIsSending] = useState(false);
 
 	const handleOnPress = () => {
 		setText("");
@@ -166,8 +167,10 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 		];
 		setMessages(local);
 
+		setIsSending(true);
 		const req = [...gptMessages, { role: "user", content: text }];
 		const response = await sendToChatGpt(req);
+		setIsSending(false);
 
 		if (!response.ok) return;
 
@@ -246,6 +249,7 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 					text={text}
 					backgroundColor={colors.background}
 					width={SectionType.CODING_DSA === section ? "60%" : "90%"}
+					disabled={isSending}
 				/>
 			</View>
 		</View>

@@ -25,6 +25,7 @@ type PropsType = {
 	backgroundColor?: string;
 	width?: string;
 	showAnimation?: boolean;
+	disabled?: boolean;
 };
 export default function ChatBox(props: PropsType) {
 	const {
@@ -37,6 +38,7 @@ export default function ChatBox(props: PropsType) {
 		backgroundColor = colors.black,
 		width = "90%",
 		showAnimation = false,
+		disabled = false,
 	} = props;
 
 	const navigation = useNavigation();
@@ -82,7 +84,11 @@ export default function ChatBox(props: PropsType) {
 					/>
 				</View>
 			) : (
-				<TouchableOpacity style={styles.sendButton} onPress={onPressSend}>
+				<TouchableOpacity
+					style={styles.sendButton}
+					onPress={onPressSend}
+					disabled={disabled}
+				>
 					<Icon
 						name="paper-plane"
 						type={IconType.FONTAWESOME5}
