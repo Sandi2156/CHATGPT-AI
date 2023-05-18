@@ -328,6 +328,32 @@ const solveQuery = async ({
 	}
 };
 
+const findErrorInQuery = async ({
+	model = "gpt-3.5-turbo",
+	messages,
+}: {
+	model?: string;
+	messages: Array<object>;
+}) => {
+	try {
+		const customMessages = [...messages];
+		const reqMessage = customMessages[customMessages.length - 1];
+		reqMessage.content =
+			"Find error in the sql query if any : " + reqMessage.content;
+
+		console.log(customMessages);
+
+		const response = await apiClient.post("", {
+			model,
+			messages: customMessages,
+		});
+
+		return response;
+	} catch (error) {
+		console.log(error);
+	}
+};
+
 const chatApi = {
 	getResponseChat,
 	convertLanguage,
@@ -342,6 +368,7 @@ const chatApi = {
 	generateRecipe,
 	generateDish,
 	solveQuery,
+	findErrorInQuery,
 };
 
 export default chatApi;

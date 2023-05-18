@@ -92,6 +92,10 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 			case SectionType.SQL_QUERY:
 				message.user.content = "Provide your query !";
 				break;
+			case SectionType.SQL_ERROR_FINDER:
+				message.user.content =
+					"Paste the question and respective query that you want me to find error from !";
+				break;
 			default:
 				message.user.content = "Hi, How can I assist you today !";
 				break;
@@ -144,6 +148,8 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 				return chatApi.generateDish({ messages });
 			case SectionType.SQL_QUERY:
 				return chatApi.solveQuery({ messages });
+			case SectionType.SQL_ERROR_FINDER:
+				return chatApi.findErrorInQuery({ messages });
 			default:
 				return chatApi.getResponseChat("gpt-3.5-turbo", messages);
 		}
@@ -221,6 +227,16 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 			</View>
 
 			<View style={styles.chatInputContainer}>
+				{SectionType.CODING_DSA === section && (
+					<DropDownPicker
+						data={languages.codingLanguages}
+						onChange={(value: string) => setDsaLanguage(value)}
+						value={dsaLanguage}
+						width="30%"
+						showSearch={false}
+					/>
+				)}
+
 				<ChatBox
 					onPressSend={handleOnPress}
 					autoFocus={!question}
@@ -231,16 +247,6 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 					backgroundColor={colors.background}
 					width={SectionType.CODING_DSA === section ? "60%" : "90%"}
 				/>
-
-				{SectionType.CODING_DSA === section && (
-					<DropDownPicker
-						data={languages.codingLanguages}
-						onChange={(value: string) => setDsaLanguage(value)}
-						value={dsaLanguage}
-						width="30%"
-						showSearch={false}
-					/>
-				)}
 			</View>
 		</View>
 	);
