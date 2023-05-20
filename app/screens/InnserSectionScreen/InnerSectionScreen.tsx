@@ -50,7 +50,7 @@ export default function InnerSectionScreen({
 			return navigation.navigate(routes.INGREDIENTS, { section: item.section });
 
 		if (item.section === SectionType.HEALTH_CALCULATORS)
-			return navigation.navigate(routes.SECTION_INNER_SECTION, {
+			return navigation.push(routes.SECTION_INNER_SECTION, {
 				section: item.section,
 			});
 
