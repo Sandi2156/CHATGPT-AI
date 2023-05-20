@@ -381,6 +381,31 @@ const letsKnowAboutDisease = async ({
 	}
 };
 
+const calculateBMI = async ({
+	model = "gpt-3.5-turbo",
+	messages,
+}: {
+	model?: string;
+	messages: Array<object>;
+}) => {
+	try {
+		const customMessages = [...messages];
+		const reqMessage = customMessages[customMessages.length - 1];
+		reqMessage.content = reqMessage.content + ". Calculate BMI";
+
+		console.log(customMessages);
+
+		const response = await apiClient.post("", {
+			model,
+			messages: customMessages,
+		});
+
+		return response;
+	} catch (error) {
+		console.log(error);
+	}
+};
+
 const chatApi = {
 	getResponseChat,
 	convertLanguage,
@@ -397,6 +422,7 @@ const chatApi = {
 	solveQuery,
 	findErrorInQuery,
 	letsKnowAboutDisease,
+	calculateBMI,
 };
 
 export default chatApi;

@@ -8,6 +8,7 @@ import cookingInnerSectionList from "../../data/cookingInnerSectionList";
 import languageSectionList from "../../data/languageSectionList";
 import sqlInnerSectionList from "../../data/sqlInnerSectionList";
 import healthInnerSectionList from "../../data/healthInnerSectionList";
+import healthCalculatorList from "../../data/healthCalculatorList";
 
 import colors from "../../constants/colors";
 import routes from "../../enums/routes";
@@ -35,6 +36,8 @@ export default function InnerSectionScreen({
 				return sqlInnerSectionList;
 			case SectionType.HEALTH:
 				return healthInnerSectionList;
+			case SectionType.HEALTH_CALCULATORS:
+				return healthCalculatorList;
 			default:
 				break;
 		}
@@ -45,6 +48,11 @@ export default function InnerSectionScreen({
 	const handlePress = (item: (typeof innerSectionList)[0]) => {
 		if (item.section === SectionType.COOKING_DISH_GENERATOR)
 			return navigation.navigate(routes.INGREDIENTS, { section: item.section });
+
+		if (item.section === SectionType.HEALTH_CALCULATORS)
+			return navigation.navigate(routes.SECTION_INNER_SECTION, {
+				section: item.section,
+			});
 
 		navigation.navigate(routes.CHAT, { section: item.section });
 	};

@@ -14,6 +14,8 @@ import languages from "../../data/languages";
 import Icon from "../../components/Icon";
 import IconType from "../../enums/icons";
 
+import calculatorQuestions from "../../data/calculatorQuestionList";
+
 type Messagetype = {
 	_id: string;
 	user: {
@@ -28,6 +30,8 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 	const question = params?.question;
 	const section = params?.section;
 	const ingredients = params?.ingredients;
+
+	const [noOfCalculatorQuestions, setNoOfCalculatorQuestions] = useState(1);
 
 	const selectInitialInputText = () => {
 		switch (section) {
@@ -99,6 +103,10 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 			case SectionType.HEALTH_DISEASE:
 				message.user.content = "Name any Disease !";
 				break;
+			case SectionType.HEALTH_CALCULATORS_BMI:
+				message.user.content =
+					calculatorQuestions[SectionType.HEALTH_CALCULATORS_BMI][0];
+				break;
 			default:
 				message.user.content = "Hi, How can I assist you today !";
 				break;
@@ -116,12 +124,92 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 	const [dsaLanguage, setDsaLanguage] = useState<string>("Java");
 	const [isSending, setIsSending] = useState(false);
 
+	const continueChat = async (text: string) => {
+		const isLastQuestion =
+			calculatorQuestions[section as keyof typeof calculatorQuestions]
+				.length === noOfCalculatorQuestions;
+
+		if (isLastQuestion) {
+			await sendMessage(text);
+			setMessages((messages) => [
+				{
+					_id: `${uuid.v4()}`,
+					user: {
+						_id: 2,
+						content:
+							calculatorQuestions[
+								section as keyof typeof calculatorQuestions
+							][0],
+					},
+				},
+				{
+					_id: `${uuid.v4()}`,
+					user: { _id: 2, content: "Let's try again. " },
+				},
+				...messages,
+			]);
+			setGptMessages((gptMessages) => [
+				...gptMessages,
+				{
+					role: "assistant",
+					content:
+						calculatorQuestions[section as keyof typeof calculatorQuestions][0],
+				},
+			]);
+			setNoOfCalculatorQuestions(1);
+			return;
+		}
+
+		const question =
+			calculatorQuestions[section as keyof typeof calculatorQuestions][
+				noOfCalculatorQuestions
+			];
+
+		setMessages((messages) => [
+			{
+				_id: `${uuid.v4()}`,
+				user: {
+					_id: 2,
+					content: question,
+				},
+			},
+			{ _id: `${uuid.v4()}`, user: { _id: 1, content: text } },
+			...messages,
+		]);
+		if (noOfCalculatorQuestions === 1) {
+			setGptMessages((gptMessages) => [
+				...gptMessages,
+				{
+					role: "assistant",
+					content:
+						calculatorQuestions[section as keyof typeof calculatorQuestions][0],
+				},
+			]);
+		}
+
+		setGptMessages((gptMessages) => [
+			...gptMessages,
+			{ role: "user", content: text },
+			{
+				role: "assistant",
+				content: question,
+			},
+		]);
+		setNoOfCalculatorQuestions((pre) => pre + 1);
+	};
+
 	const handleOnPress = () => {
 		setText("");
+
+		if (SectionType.HEALTH_CALCULATORS_BMI === section) {
+			continueChat(text);
+			return;
+		}
+
 		sendMessage(text);
 	};
 
-	const sendToChatGpt = (messages: Array<GptMessagetype>) => {
+	const chooseApi = (messages: Array<GptMessagetype>) => {
 		switch (section) {
 			case SectionType.LANGUAGE_CONVERTER:
 				return chatApi.convertLanguage({
@@ -156,6 +244,8 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 				return chatApi.findErrorInQuery({ messages });
 			case SectionType.HEALTH_DISEASE:
 				return chatApi.letsKnowAboutDisease({ messages });
+			case SectionType.HEALTH_CALCULATORS_BMI:
+				return chatApi.calculateBMI({ messages });
 			default:
 				return chatApi.getResponseChat("gpt-3.5-turbo", messages);
 		}
@@ -174,7 +264,7 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 
 		setIsSending(true);
 		const req = [...gptMessages, { role: "user", content: text }];
-		const response = await sendToChatGpt(req);
+		const response = await chooseApi(req);
 		setIsSending(false);
 
 		if (!response.ok) return;
