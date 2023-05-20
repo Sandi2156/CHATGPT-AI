@@ -6,6 +6,8 @@ import colors from "../constants/colors";
 import TabBarIcon from "../components/TabBarIcon";
 import AccountScreen from "../screens/AccountScreen";
 import HomeScreen from "../screens/HomeScreen/HomeScreen";
+import Icon from "../components/Icon";
+import IconType from "../enums/icons";
 
 const Tab = createBottomTabNavigator();
 
@@ -14,10 +16,21 @@ export default function TabNavigator() {
 		<Tab.Navigator
 			screenOptions={({ route }) => ({
 				headerShown: false,
-				tabBarActiveBackgroundColor: "#44464A",
-				tabBarInactiveBackgroundColor: "#44464A",
+				// tabBarActiveBackgroundColor: colors.black,
+				// tabBarInactiveBackgroundColor: colors.black,
 				tabBarShowLabel: false,
-				tabBarStyle: { borderTopWidth: 0, height: 60 },
+				tabBarStyle: {
+					borderTopWidth: 0,
+					height: 60,
+					// paddingTop: 7,
+					backgroundColor: "#232227",
+					borderTopLeftRadius: 20,
+					borderTopRightRadius: 20,
+					borderLeftWidth: 0.2,
+					borderRightWidth: 0.2,
+					position: "absolute",
+					overflow: "hidden",
+				},
 
 				tabBarIcon: ({ focused, size }) => {
 					if (route.name === routes.HOME_TAB)
@@ -26,8 +39,9 @@ export default function TabNavigator() {
 								focused={focused}
 								size={size}
 								iconComponent={
-									<Octicons
+									<Icon
 										name="home"
+										type={IconType.ANTDESIGN}
 										color={!focused ? colors.lightSky : colors.medium}
 										size={size}
 									/>
@@ -40,8 +54,9 @@ export default function TabNavigator() {
 							focused={focused}
 							size={size}
 							iconComponent={
-								<MaterialIcons
-									name="person-outline"
+								<Icon
+									name="md-game-controller-outline"
+									type={IconType.ION}
 									color={!focused ? colors.lightSky : colors.medium}
 									size={size}
 								/>

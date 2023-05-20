@@ -399,7 +399,7 @@ const healthCalculators = async ({
 			case SectionType.HEALTH_CALCULATORS_BMI:
 				reqMessage.content =
 					reqMessage.content +
-					". Calculate BMI. Just give me the number without any explanation.";
+					". Calculate BMI. Just give me the number and tell me in which category I fall in. ";
 				break;
 			case SectionType.HEALTH_CALCULATORS_BMR:
 				reqMessage.content =

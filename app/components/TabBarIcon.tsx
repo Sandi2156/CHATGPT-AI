@@ -34,7 +34,7 @@ export default function TabBarIcon({
 
 const styles = StyleSheet.create({
 	focused: {
-		backgroundColor: "#e7dcf4",
+		backgroundColor: "#cae7ea",
 		justifyContent: "center",
 		alignItems: "center",
 	},
