@@ -107,6 +107,10 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 				message.user.content =
 					calculatorQuestions[SectionType.HEALTH_CALCULATORS_BMI][0];
 				break;
+			case SectionType.HEALTH_CALCULATORS_BMR:
+				message.user.content =
+					calculatorQuestions[SectionType.HEALTH_CALCULATORS_BMR][0];
+				break;
 			default:
 				message.user.content = "Hi, How can I assist you today !";
 				break;
@@ -201,7 +205,10 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 	const handleOnPress = () => {
 		setText("");
 
-		if (SectionType.HEALTH_CALCULATORS_BMI === section) {
+		if (
+			SectionType.HEALTH_CALCULATORS_BMI === section ||
+			SectionType.HEALTH_CALCULATORS_BMR === section
+		) {
 			continueChat(text);
 			return;
 		}
@@ -245,7 +252,9 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 			case SectionType.HEALTH_DISEASE:
 				return chatApi.letsKnowAboutDisease({ messages });
 			case SectionType.HEALTH_CALCULATORS_BMI:
-				return chatApi.calculateBMI({ messages });
+			case SectionType.HEALTH_CALCULATORS_BMR:
+				return chatApi.healthCalculators({ messages, section });
+
 			default:
 				return chatApi.getResponseChat("gpt-3.5-turbo", messages);
 		}

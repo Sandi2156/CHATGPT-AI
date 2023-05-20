@@ -1,3 +1,4 @@
+import SectionType from "../enums/sections";
 import apiClient from "./client";
 
 const getResponseChat = async (model: string, messages: Array<object>) => {
@@ -381,17 +382,29 @@ const letsKnowAboutDisease = async ({
 	}
 };
 
-const calculateBMI = async ({
+const healthCalculators = async ({
 	model = "gpt-3.5-turbo",
 	messages,
+	section,
 }: {
 	model?: string;
 	messages: Array<object>;
+	section: SectionType;
 }) => {
 	try {
 		const customMessages = [...messages];
 		const reqMessage = customMessages[customMessages.length - 1];
-		reqMessage.content = reqMessage.content + ". Calculate BMI";
+
+		switch (section) {
+			case SectionType.HEALTH_CALCULATORS_BMI:
+				reqMessage.content = reqMessage.content + ". Calculate BMI";
+				break;
+			case SectionType.HEALTH_CALCULATORS_BMR:
+				reqMessage.content = reqMessage.content + ". Calculate BMR";
+				break;
+			default:
+				break;
+		}
 
 		console.log(customMessages);
 
@@ -422,7 +435,7 @@ const chatApi = {
 	solveQuery,
 	findErrorInQuery,
 	letsKnowAboutDisease,
-	calculateBMI,
+	healthCalculators,
 };
 
 export default chatApi;

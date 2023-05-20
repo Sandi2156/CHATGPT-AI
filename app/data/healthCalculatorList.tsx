@@ -18,6 +18,13 @@ const healthCalculatorList: ListType = [
 		bgColor: colors.lightSky,
 	},
 	{
+		title: "BMR",
+		iconName: "disease",
+		iconType: IconType.FONTAWESOME5,
+		section: SectionType.HEALTH_CALCULATORS_BMR,
+		bgColor: colors.lightSky,
+	},
+	{
 		title: "Calorie and Macronutrient",
 		iconName: "calculator-outline",
 		iconType: IconType.ION,
