@@ -111,6 +111,12 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 				message.user.content =
 					calculatorQuestions[SectionType.HEALTH_CALCULATORS_BMR][0];
 				break;
+			case SectionType.HEALTH_CALCULATORS_CALORIE_MICRONUTRIENT:
+				message.user.content =
+					calculatorQuestions[
+						SectionType.HEALTH_CALCULATORS_CALORIE_MICRONUTRIENT
+					][0];
+				break;
 			default:
 				message.user.content = "Hi, How can I assist you today !";
 				break;
@@ -140,15 +146,12 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 					_id: `${uuid.v4()}`,
 					user: {
 						_id: 2,
-						content:
+						content: `Let's try again. ${
 							calculatorQuestions[
 								section as keyof typeof calculatorQuestions
-							][0],
+							][0]
+						}`,
 					},
-				},
-				{
-					_id: `${uuid.v4()}`,
-					user: { _id: 2, content: "Let's try again. " },
 				},
 				...messages,
 			]);
@@ -207,7 +210,8 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 
 		if (
 			SectionType.HEALTH_CALCULATORS_BMI === section ||
-			SectionType.HEALTH_CALCULATORS_BMR === section
+			SectionType.HEALTH_CALCULATORS_BMR === section ||
+			SectionType.HEALTH_CALCULATORS_CALORIE_MICRONUTRIENT === section
 		) {
 			continueChat(text);
 			return;
@@ -253,6 +257,7 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 				return chatApi.letsKnowAboutDisease({ messages });
 			case SectionType.HEALTH_CALCULATORS_BMI:
 			case SectionType.HEALTH_CALCULATORS_BMR:
+			case SectionType.HEALTH_CALCULATORS_CALORIE_MICRONUTRIENT:
 				return chatApi.healthCalculators({ messages, section });
 
 			default:

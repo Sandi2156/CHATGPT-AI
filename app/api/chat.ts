@@ -397,11 +397,19 @@ const healthCalculators = async ({
 
 		switch (section) {
 			case SectionType.HEALTH_CALCULATORS_BMI:
-				reqMessage.content = reqMessage.content + ". Calculate BMI";
+				reqMessage.content =
+					reqMessage.content +
+					". Calculate BMI. Just give me the number without any explanation.";
 				break;
 			case SectionType.HEALTH_CALCULATORS_BMR:
-				reqMessage.content = reqMessage.content + ". Calculate BMR";
+				reqMessage.content =
+					reqMessage.content +
+					". Calculate BMR. Just give me the number without any explanation.";
 				break;
+			case SectionType.HEALTH_CALCULATORS_CALORIE_MICRONUTRIENT:
+				reqMessage.content =
+					reqMessage.content +
+					". Provide me macronutrients and calorie need to achieve my goal. Just give me the number without any extra explanation.";
 			default:
 				break;
 		}
