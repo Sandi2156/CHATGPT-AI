@@ -3,7 +3,11 @@ import apiClient from "./client";
 
 const getResponseChat = async (model: string, messages: Array<object>) => {
 	try {
-		const response = await apiClient.post("", { model, messages });
+		const response = await apiClient.post("", {
+			model,
+			messages,
+			temperature: 0.7,
+		});
 
 		return response;
 	} catch (error) {
@@ -450,6 +454,31 @@ const getMovieRecommendation = async ({
 	}
 };
 
+const guessEmoji = async ({
+	model = "gpt-3.5-turbo",
+	messages,
+}: {
+	model?: string;
+	messages: Array<object>;
+}) => {
+	try {
+		const customMessages = [...messages];
+		const reqMessage = customMessages[customMessages.length - 1];
+		reqMessage.content = "Guess the emoji : " + reqMessage.content;
+
+		console.log(customMessages);
+
+		const response = await apiClient.post("", {
+			model,
+			messages: customMessages,
+		});
+
+		return response;
+	} catch (error) {
+		console.log(error);
+	}
+};
+
 const chatApi = {
 	getResponseChat,
 	convertLanguage,
@@ -468,6 +497,7 @@ const chatApi = {
 	letsKnowAboutDisease,
 	healthCalculators,
 	getMovieRecommendation,
+	guessEmoji,
 };
 
 export default chatApi;

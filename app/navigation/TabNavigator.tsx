@@ -4,10 +4,10 @@ import { Octicons, MaterialIcons } from "@expo/vector-icons";
 import routes from "../enums/routes";
 import colors from "../constants/colors";
 import TabBarIcon from "../components/TabBarIcon";
-import AccountScreen from "../screens/AccountScreen";
 import HomeScreen from "../screens/HomeScreen/HomeScreen";
 import Icon from "../components/Icon";
 import IconType from "../enums/icons";
+import FunScreen from "../screens/FunScreen/FunScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -68,7 +68,7 @@ export default function TabNavigator() {
 		>
 			<Tab.Screen name={routes.HOME_TAB} component={HomeScreen} />
 
-			<Tab.Screen name={routes.GENERAL_CHAT_TAB} component={AccountScreen} />
+			<Tab.Screen name={routes.FUN_SECTION} component={FunScreen} />
 		</Tab.Navigator>
 	);
 }

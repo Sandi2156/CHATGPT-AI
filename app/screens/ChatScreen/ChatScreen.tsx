@@ -118,6 +118,12 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 						SectionType.HEALTH_CALCULATORS_CALORIE_MICRONUTRIENT
 					][0];
 				break;
+			case SectionType.FUN_GAMING_EMOJI_GUESSER:
+				message.user.content = "Waiting for your emoji !";
+				break;
+			case SectionType.FUN_GAMING_GUESS_WHO:
+				message.user.content = "Let's Play 😎😎";
+				break;
 			default:
 				message.user.content = "Hi, How can I assist you today !";
 				break;
@@ -262,7 +268,8 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 				return chatApi.healthCalculators({ messages, section });
 			case SectionType.MOVIES:
 				return chatApi.getMovieRecommendation({ messages });
-
+			case SectionType.FUN_GAMING_EMOJI_GUESSER:
+				return chatApi.guessEmoji({ messages });
 			default:
 				return chatApi.getResponseChat("gpt-3.5-turbo", messages);
 		}
@@ -300,6 +307,37 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 		setGptMessages([...req, response.data?.choices[0]?.message]);
 	};
 
+	const sendWithoutShowing = async (text: string) => {
+		text = text.trim();
+		if (!text) return;
+
+		const local = [
+			{ _id: `${uuid.v4()}`, user: { _id: 2, content: "loading" } },
+			...messages,
+		];
+		setMessages(local);
+
+		setIsSending(true);
+		const req = [...gptMessages, { role: "user", content: text }];
+		const response = await chooseApi(req);
+		setIsSending(false);
+
+		if (!response.ok) return;
+
+		const [_, ...rest] = local;
+		setMessages([
+			{
+				_id: `${uuid.v4()}`,
+				user: {
+					_id: 2,
+					content: response.data?.choices[0]?.message?.content,
+				},
+			},
+			...rest,
+		]);
+		setGptMessages([...req, response.data?.choices[0]?.message]);
+	};
+
 	useEffect(() => {
 		if (question) sendMessage(question);
 
@@ -311,16 +349,6 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 					filters[key][0]
 				}.`;
 			}
-
-			const message = {
-				_id: `${uuid.v4()}`,
-				user: {
-					_id: 1,
-					content,
-				},
-			};
-
-			// setMessages((messages) => [message, ...messages]);
 
 			let prompt = "Give me top 15 ";
 			const genre = filters["Genre"][0],
@@ -347,6 +375,10 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 			prompt +=
 				". just give me movie names with year and imdb rating like this [name(year) - [rating]] and it should be presented in descending order of rating, do not give any other things.";
 			sendMessage(content, prompt);
+		} else if (section === SectionType.FUN_GAMING_GUESS_WHO) {
+			sendWithoutShowing(
+				"I am thinking about character. You must ask me yes/no questions, and I will respond with a yes or no. You must guess the character that i am thinking about based on my response. Start with the first question."
+			);
 		}
 	}, []);
 
