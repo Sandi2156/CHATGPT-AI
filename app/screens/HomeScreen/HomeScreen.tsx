@@ -13,6 +13,7 @@ import suggestionsList from "../../data/suggestionsList";
 import routes from "../../enums/routes";
 import colors from "../../constants/colors";
 import AppBannerAd from "../../components/ads/BannerAd";
+import BackgroundMessage from "../../components/BackgroundMessage";
 
 export default function HomeScreen() {
 	const one = buttonList.slice(0, 4);
@@ -68,6 +69,9 @@ export default function HomeScreen() {
 			</View>
 
 			{/* <AppBannerAd /> */}
+			<View style={{ marginBottom: 150, paddingHorizontal: 20 }}>
+				<BackgroundMessage />
+			</View>
 		</Screen>
 	);
 }
@@ -81,7 +85,7 @@ const styles = StyleSheet.create({
 		paddingVertical: 10,
 		paddingHorizontal: 10,
 	},
-	suggestionContainer: { marginBottom: 80 },
+	suggestionContainer: { marginBottom: 0 },
 	row: {
 		flexDirection: "row",
 		justifyContent: "space-around",

@@ -43,6 +43,31 @@ const convertLanguage = async ({
 	}
 };
 
+const writeCoverLetter = async ({
+	model = "gpt-3.5-turbo",
+	messages,
+}: {
+	model?: string;
+	messages: Array<object>;
+}) => {
+	try {
+		const customMessages = [...messages];
+		const reqMessage = customMessages[customMessages.length - 1];
+		reqMessage.content =
+			`Write a great cover letter with this following description  : ` +
+			reqMessage.content;
+
+		const response = await apiClient.post("", {
+			model,
+			messages: customMessages,
+		});
+
+		return response;
+	} catch (error) {
+		console.log(error);
+	}
+};
+
 const summarize = async ({
 	model = "gpt-3.5-turbo",
 	messages,
@@ -498,6 +523,7 @@ const chatApi = {
 	healthCalculators,
 	getMovieRecommendation,
 	guessEmoji,
+	writeCoverLetter,
 };
 
 export default chatApi;

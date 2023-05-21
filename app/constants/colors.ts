@@ -20,6 +20,7 @@ const colors = {
 	orange: "#ff9000",
 	lightOrange: "#faa28e",
 	background: "#2a2a2a",
+	backgroundDark: "#161b22",
 	lightSky: "#e6f5fb",
 	lightPink: "#e7dcf4",
 };

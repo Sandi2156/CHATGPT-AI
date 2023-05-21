@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
 	container: {
 		backgroundColor: colors.black,
 		flex: 1,
-		paddingVertical: 20,
+		paddingVertical: 30,
 		position: "relative",
 	},
 	columnWrapperStyle: { justifyContent: "space-evenly" },

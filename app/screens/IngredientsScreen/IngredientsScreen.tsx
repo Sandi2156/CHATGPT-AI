@@ -57,7 +57,7 @@ export default function IngredientsScreen({
 				ItemSeparatorComponent={ItemSeperator}
 			/>
 
-			<SkipButton onClick={onProceed} />
+			<SkipButton onClick={onProceed} bgColor={colors.lightOrange} />
 		</View>
 	);
 }

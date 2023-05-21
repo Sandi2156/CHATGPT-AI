@@ -12,13 +12,13 @@ type ListType = Array<{
 const funSectionList: ListType = [
 	{
 		title: "Emoji Guesser",
-		iconName: "free-code-camp",
-		iconType: IconType.FONTAWESOME5,
+		iconName: "sticker-emoji",
+		iconType: IconType.MATERIALCOMMUNITY,
 		section: SectionType.FUN_GAMING_EMOJI_GUESSER,
 	},
 	{
 		title: "Guess Who",
-		iconName: "free-code-camp",
+		iconName: "lightbulb",
 		iconType: IconType.FONTAWESOME5,
 		section: SectionType.FUN_GAMING_GUESS_WHO,
 	},

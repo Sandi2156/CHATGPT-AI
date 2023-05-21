@@ -1,5 +1,6 @@
 import colors from "../constants/colors";
 import IconType from "../enums/icons";
+import SectionType from "../enums/sections";
 
 const suggestionsHomeList: Array<{
 	iconName: string;
@@ -13,28 +14,35 @@ const suggestionsHomeList: Array<{
 		iconType: IconType.FONTAWESOME,
 		title: "What should I do if I have malaria ?",
 		titleBackground: colors.secondary,
-		section: "HEALTH",
+		section: SectionType.HEALTH,
 	},
 	{
 		iconName: "language",
 		iconType: IconType.FONTAWESOME,
 		title: "Convert this in english: Ami tomake valobasi",
 		titleBackground: colors.primary,
-		section: "LANGUAGE",
+		section: SectionType.LANGUAGE,
 	},
 	{
-		iconName: "language-java",
-		iconType: IconType.MATERIALCOMMUNITY,
+		iconName: "codesquareo",
+		iconType: IconType.ANTDESIGN,
 		title: "Write a program to print pyramid",
 		titleBackground: colors.leaf,
-		section: "CODING",
+		section: SectionType.CODING,
 	},
 	{
 		iconName: "spoon-sugar",
 		iconType: IconType.MATERIALCOMMUNITY,
 		title: "Give a receipe on chicken butter masala ",
 		titleBackground: colors.orange,
-		section: "COOKING",
+		section: SectionType.COOKING,
+	},
+	{
+		iconName: "bus-alt",
+		iconType: IconType.FONTAWESOME5,
+		title: "Give a receipe on chicken butter masala ",
+		titleBackground: colors.rose,
+		section: SectionType.TRAVEL,
 	},
 ];
 

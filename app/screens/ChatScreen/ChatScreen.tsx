@@ -236,6 +236,7 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 					to: toLanguage,
 				});
 			case SectionType.LANGUAGE_COVER_LETTER:
+				return chatApi.writeCoverLetter({ messages });
 			case SectionType.LANGUAGE_SUMMARIZE:
 				return chatApi.summarize({ messages });
 			case SectionType.LANGUAGE_ESSAY:

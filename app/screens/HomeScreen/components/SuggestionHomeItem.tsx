@@ -33,7 +33,7 @@ export default function SuggestionHomeItem(props: PropsType) {
 
 	let modifyQuestions = [...questions];
 	modifyQuestions =
-		modifyQuestions.length > 4 ? modifyQuestions.slice(0, 4) : modifyQuestions;
+		modifyQuestions.length > 4 ? modifyQuestions.slice(0, 3) : modifyQuestions;
 
 	return (
 		<View style={styles.container}>
@@ -68,7 +68,7 @@ export default function SuggestionHomeItem(props: PropsType) {
 					}
 					style={[
 						styles.lower_container,
-						index !== questions.length - 1 ? styles.border : null,
+						index !== modifyQuestions.length - 1 ? styles.border : null,
 					]}
 					key={index}
 				>
@@ -110,5 +110,5 @@ const styles = StyleSheet.create({
 		borderBottomColor: colors.medium,
 		paddingBottom: 10,
 	},
-	question: { lineHeight: 20 },
+	question: { lineHeight: 20, width: "95%" },
 });
