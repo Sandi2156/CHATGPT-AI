@@ -8,7 +8,7 @@ import {
 } from "@expo/vector-icons";
 import { Image } from "react-native";
 
-const iconSize = 35;
+const iconSize = 33;
 import colors from "../constants/colors";
 import SectionType from "../enums/sections";
 

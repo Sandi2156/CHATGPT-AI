@@ -31,6 +31,10 @@ export default function SuggestionHomeItem(props: PropsType) {
 		useNavigation<NativeStackNavigationProp<{ CHAT: { question: string } }>>();
 	const { copy, done } = useCopy();
 
+	let modifyQuestions = [...questions];
+	modifyQuestions =
+		modifyQuestions.length > 4 ? modifyQuestions.slice(0, 4) : modifyQuestions;
+
 	return (
 		<View style={styles.container}>
 			<View
@@ -44,7 +48,7 @@ export default function SuggestionHomeItem(props: PropsType) {
 					</AppText>
 				</View>
 
-				<TouchableOpacity onPress={() => copy(questions[0])}>
+				<TouchableOpacity onPress={() => copy(modifyQuestions[0])}>
 					{done ? (
 						<Icon
 							name="check"
@@ -57,7 +61,7 @@ export default function SuggestionHomeItem(props: PropsType) {
 				</TouchableOpacity>
 			</View>
 
-			{questions.map((question, index) => (
+			{modifyQuestions.map((question, index) => (
 				<TouchableOpacity
 					onPress={() =>
 						navigation.navigate(routes.CHAT, { question: question })

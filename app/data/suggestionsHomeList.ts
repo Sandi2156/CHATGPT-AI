@@ -16,13 +16,6 @@ const suggestionsHomeList: Array<{
 		section: "HEALTH",
 	},
 	{
-		iconName: "dumbbell",
-		iconType: IconType.MATERIALCOMMUNITY,
-		title: "What should my daily calory intake ?",
-		titleBackground: colors.yellow,
-		section: "FITNESS",
-	},
-	{
 		iconName: "language",
 		iconType: IconType.FONTAWESOME,
 		title: "Convert this in english: Ami tomake valobasi",

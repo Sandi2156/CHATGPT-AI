@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
 		paddingVertical: 10,
 		paddingHorizontal: 10,
 	},
-	suggestionContainer: { marginBottom: 20 },
+	suggestionContainer: { marginBottom: 80 },
 	row: {
 		flexDirection: "row",
 		justifyContent: "space-around",
