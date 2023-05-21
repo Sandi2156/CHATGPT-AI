@@ -4,9 +4,7 @@ const useShare = () => {
 	const share = async (text: string) => {
 		try {
 			await Share.share({ message: text });
-		} catch (error) {
-			console.log(error);
-		}
+		} catch (error) {}
 	};
 
 	return { share };

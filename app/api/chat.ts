@@ -3,7 +3,6 @@ import apiClient from "./client";
 
 const getResponseChat = async (model: string, messages: Array<object>) => {
 	try {
-		console.log(messages);
 		const response = await apiClient.post("", {
 			model,
 			messages,
@@ -11,9 +10,7 @@ const getResponseChat = async (model: string, messages: Array<object>) => {
 		});
 
 		return response;
-	} catch (error) {
-		console.log(error);
-	}
+	} catch (error) {}
 };
 
 const convertLanguage = async ({
@@ -39,9 +36,7 @@ const convertLanguage = async ({
 		});
 
 		return response;
-	} catch (error) {
-		console.log(error);
-	}
+	} catch (error) {}
 };
 
 const writeCoverLetter = async ({
@@ -64,9 +59,7 @@ const writeCoverLetter = async ({
 		});
 
 		return response;
-	} catch (error) {
-		console.log(error);
-	}
+	} catch (error) {}
 };
 
 const summarize = async ({
@@ -81,17 +74,13 @@ const summarize = async ({
 		const reqMessage = customMessages[customMessages.length - 1];
 		reqMessage.content = `summarize : ` + reqMessage.content;
 
-		console.log(customMessages);
-
 		const response = await apiClient.post("", {
 			model,
 			messages: customMessages,
 		});
 
 		return response;
-	} catch (error) {
-		console.log(error);
-	}
+	} catch (error) {}
 };
 
 const giveEssay = async ({
@@ -106,17 +95,13 @@ const giveEssay = async ({
 		const reqMessage = customMessages[customMessages.length - 1];
 		reqMessage.content = `Write an essay on this topic : ` + reqMessage.content;
 
-		console.log(customMessages);
-
 		const response = await apiClient.post("", {
 			model,
 			messages: customMessages,
 		});
 
 		return response;
-	} catch (error) {
-		console.log(error);
-	}
+	} catch (error) {}
 };
 
 const rephrase = async ({
@@ -131,17 +116,13 @@ const rephrase = async ({
 		const reqMessage = customMessages[customMessages.length - 1];
 		reqMessage.content = `Rephrase this : ` + reqMessage.content;
 
-		console.log(customMessages);
-
 		const response = await apiClient.post("", {
 			model,
 			messages: customMessages,
 		});
 
 		return response;
-	} catch (error) {
-		console.log(error);
-	}
+	} catch (error) {}
 };
 
 const grammarly = async ({
@@ -158,17 +139,13 @@ const grammarly = async ({
 			`Find the grammatical mistakes in the sentence or paragraph if any and write the sentence in five different ways : ` +
 			reqMessage.content;
 
-		console.log(customMessages);
-
 		const response = await apiClient.post("", {
 			model,
 			messages: customMessages,
 		});
 
 		return response;
-	} catch (error) {
-		console.log(error);
-	}
+	} catch (error) {}
 };
 
 const solveDsa = async ({
@@ -186,17 +163,13 @@ const solveDsa = async ({
 		reqMessage.content =
 			`Solve the dsa question ` + `in ${language} : ` + reqMessage.content;
 
-		console.log(customMessages);
-
 		const response = await apiClient.post("", {
 			model,
 			messages: customMessages,
 		});
 
 		return response;
-	} catch (error) {
-		console.log(error);
-	}
+	} catch (error) {}
 };
 
 const findErrorInCode = async ({
@@ -216,17 +189,13 @@ const findErrorInCode = async ({
 			: `Find error in the given code where the error is ${error}` +
 			  reqMessage.content;
 
-		console.log(customMessages);
-
 		const response = await apiClient.post("", {
 			model,
 			messages: customMessages,
 		});
 
 		return response;
-	} catch (error) {
-		console.log(error);
-	}
+	} catch (error) {}
 };
 
 const optimizeCode = async ({
@@ -241,17 +210,13 @@ const optimizeCode = async ({
 		const reqMessage = customMessages[customMessages.length - 1];
 		reqMessage.content = `Optimize the code : ` + reqMessage.content;
 
-		console.log(customMessages);
-
 		const response = await apiClient.post("", {
 			model,
 			messages: customMessages,
 		});
 
 		return response;
-	} catch (error) {
-		console.log(error);
-	}
+	} catch (error) {}
 };
 
 const generateWebsiteTemplate = async ({
@@ -268,17 +233,13 @@ const generateWebsiteTemplate = async ({
 			`I want to create a website. Generate a wesite template where the description of the website is : ` +
 			reqMessage.content;
 
-		console.log(customMessages);
-
 		const response = await apiClient.post("", {
 			model,
 			messages: customMessages,
 		});
 
 		return response;
-	} catch (error) {
-		console.log(error);
-	}
+	} catch (error) {}
 };
 
 const generateRecipe = async ({
@@ -293,17 +254,13 @@ const generateRecipe = async ({
 		const reqMessage = customMessages[customMessages.length - 1];
 		reqMessage.content = `Give me recipe of this dish : ` + reqMessage.content;
 
-		console.log(customMessages);
-
 		const response = await apiClient.post("", {
 			model,
 			messages: customMessages,
 		});
 
 		return response;
-	} catch (error) {
-		console.log(error);
-	}
+	} catch (error) {}
 };
 
 const generateDish = async ({
@@ -321,17 +278,13 @@ const generateDish = async ({
 			reqMessage.content +
 			". Name me some dishes which I can make from the ingredients";
 
-		console.log(customMessages);
-
 		const response = await apiClient.post("", {
 			model,
 			messages: customMessages,
 		});
 
 		return response;
-	} catch (error) {
-		console.log(error);
-	}
+	} catch (error) {}
 };
 
 const solveQuery = async ({
@@ -346,17 +299,13 @@ const solveQuery = async ({
 		const reqMessage = customMessages[customMessages.length - 1];
 		reqMessage.content = "Solve the sql query : " + reqMessage.content;
 
-		console.log(customMessages);
-
 		const response = await apiClient.post("", {
 			model,
 			messages: customMessages,
 		});
 
 		return response;
-	} catch (error) {
-		console.log(error);
-	}
+	} catch (error) {}
 };
 
 const findErrorInQuery = async ({
@@ -372,17 +321,13 @@ const findErrorInQuery = async ({
 		reqMessage.content =
 			"Find error in the sql query if any : " + reqMessage.content;
 
-		console.log(customMessages);
-
 		const response = await apiClient.post("", {
 			model,
 			messages: customMessages,
 		});
 
 		return response;
-	} catch (error) {
-		console.log(error);
-	}
+	} catch (error) {}
 };
 
 const letsKnowAboutDisease = async ({
@@ -399,17 +344,13 @@ const letsKnowAboutDisease = async ({
 			"Tell me about this disease, symptoms, risk factors and treatment : " +
 			reqMessage.content;
 
-		console.log(customMessages);
-
 		const response = await apiClient.post("", {
 			model,
 			messages: customMessages,
 		});
 
 		return response;
-	} catch (error) {
-		console.log(error);
-	}
+	} catch (error) {}
 };
 
 const healthCalculators = async ({
@@ -444,17 +385,13 @@ const healthCalculators = async ({
 				break;
 		}
 
-		console.log(customMessages);
-
 		const response = await apiClient.post("", {
 			model,
 			messages: customMessages,
 		});
 
 		return response;
-	} catch (error) {
-		console.log(error);
-	}
+	} catch (error) {}
 };
 
 const getMovieRecommendation = async ({
@@ -467,17 +404,13 @@ const getMovieRecommendation = async ({
 	try {
 		const customMessages = [...messages];
 
-		console.log(customMessages);
-
 		const response = await apiClient.post("", {
 			model,
 			messages: customMessages,
 		});
 
 		return response;
-	} catch (error) {
-		console.log(error);
-	}
+	} catch (error) {}
 };
 
 const guessEmoji = async ({
@@ -492,17 +425,13 @@ const guessEmoji = async ({
 		const reqMessage = customMessages[customMessages.length - 1];
 		reqMessage.content = "Guess the emoji : " + reqMessage.content;
 
-		console.log(customMessages);
-
 		const response = await apiClient.post("", {
 			model,
 			messages: customMessages,
 		});
 
 		return response;
-	} catch (error) {
-		console.log(error);
-	}
+	} catch (error) {}
 };
 
 const chatApi = {

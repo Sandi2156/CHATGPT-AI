@@ -383,7 +383,6 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 		} else if (section === SectionType.FUN_GAMING_EMOJI_GUESSER) {
 			const gusser = filters["Gusser"][0],
 				topic = filters["Topic"][0];
-			console.log(gusser, topic);
 			const prompt = `Let's play Emoji Translator game. ${
 				gusser === "AI"
 					? `Guess the emoji from topic ${topic} which I will be sending to you.`
