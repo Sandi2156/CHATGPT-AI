@@ -6,8 +6,9 @@ import {
 	Fontisto,
 	SimpleLineIcons,
 } from "@expo/vector-icons";
+import { Image } from "react-native";
 
-const iconSize = 30;
+const iconSize = 35;
 import colors from "../constants/colors";
 import SectionType from "../enums/sections";
 
@@ -21,10 +22,14 @@ const buttonList: Array<{
 		title: "Health",
 		backgroundColor: "lightDark",
 		IconComponent: (
-			<FontAwesome
-				name="hospital-o"
-				size={iconSize}
-				color={colors["secondary"]}
+			// <FontAwesome
+			// 	name="hospital-o"
+			// 	size={iconSize}
+			// 	color={colors["secondary"]}
+			// />
+			<Image
+				source={require("../../assets/buttonIcons/img/healthcare.png")}
+				style={{ height: iconSize, width: iconSize }}
 			/>
 		),
 		section: SectionType.HEALTH,
@@ -32,7 +37,11 @@ const buttonList: Array<{
 	{
 		title: "Language",
 		IconComponent: (
-			<FontAwesome name="language" size={iconSize} color={colors["primary"]} />
+			// <FontAwesome name="language" size={iconSize} color={colors["primary"]} />
+			<Image
+				source={require("../../assets/buttonIcons/img/language.png")}
+				style={{ height: iconSize, width: iconSize }}
+			/>
 		),
 		backgroundColor: "lightDark",
 		section: SectionType.LANGUAGE,
@@ -40,10 +49,14 @@ const buttonList: Array<{
 	{
 		title: "Coding",
 		IconComponent: (
-			<MaterialCommunityIcons
-				name="language-java"
-				size={iconSize}
-				color={colors["leaf"]}
+			// <MaterialCommunityIcons
+			// 	name="language-java"
+			// 	size={iconSize}
+			// 	color={colors["leaf"]}
+			// />
+			<Image
+				source={require("../../assets/buttonIcons/img/code.png")}
+				style={{ height: iconSize, width: iconSize }}
 			/>
 		),
 		backgroundColor: "lightDark",
@@ -52,10 +65,14 @@ const buttonList: Array<{
 	{
 		title: "Cooking",
 		IconComponent: (
-			<MaterialCommunityIcons
-				name="spoon-sugar"
-				size={iconSize}
-				color={colors["orange"]}
+			// <MaterialCommunityIcons
+			// 	name="spoon-sugar"
+			// 	size={iconSize}
+			// 	color={colors["orange"]}
+			// />
+			<Image
+				source={require("../../assets/buttonIcons/img/cooking.png")}
+				style={{ height: iconSize, width: iconSize }}
 			/>
 		),
 		backgroundColor: "lightDark",
@@ -64,10 +81,14 @@ const buttonList: Array<{
 	{
 		title: "History",
 		IconComponent: (
-			<MaterialIcons
-				name="history-edu"
-				size={iconSize}
-				color={colors["skin"]}
+			// <MaterialIcons
+			// 	name="history-edu"
+			// 	size={iconSize}
+			// 	color={colors["skin"]}
+			// />
+			<Image
+				source={require("../../assets/buttonIcons/img/history.png")}
+				style={{ height: iconSize, width: iconSize }}
 			/>
 		),
 		backgroundColor: "lightDark",
@@ -76,7 +97,11 @@ const buttonList: Array<{
 	{
 		title: "SQL",
 		IconComponent: (
-			<Fontisto name="mysql" size={iconSize} color={colors["sky"]} />
+			// <Fontisto name="mysql" size={iconSize} color={colors["sky"]} />
+			<Image
+				source={require("../../assets/buttonIcons/img/big-data.png")}
+				style={{ height: iconSize, width: iconSize }}
+			/>
 		),
 		backgroundColor: "lightDark",
 		section: SectionType.SQL,
@@ -84,10 +109,26 @@ const buttonList: Array<{
 	{
 		title: "Travel",
 		IconComponent: (
-			<SimpleLineIcons name="plane" size={iconSize} color={colors["rose"]} />
+			// <SimpleLineIcons name="plane" size={iconSize} color={colors["rose"]} />
+			<Image
+				source={require("../../assets/buttonIcons/img/travel.png")}
+				style={{ height: iconSize, width: iconSize }}
+			/>
 		),
 		backgroundColor: "lightDark",
 		section: SectionType.TRAVEL,
+	},
+	{
+		title: "Movies",
+		IconComponent: (
+			// <SimpleLineIcons name="plane" size={iconSize} color={colors["rose"]} />
+			<Image
+				source={require("../../assets/buttonIcons/img/movie.png")}
+				style={{ height: iconSize, width: iconSize }}
+			/>
+		),
+		backgroundColor: "lightDark",
+		section: SectionType.MOVIES,
 	},
 ];
 
