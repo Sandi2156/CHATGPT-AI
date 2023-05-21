@@ -9,6 +9,8 @@ import SkipButton from "../../components/SkipButton";
 import routes from "../../enums/routes";
 
 import movieFilters from "../../data/movieFilters";
+import SectionType from "../../enums/sections";
+import emojiGusserList from "../../data/emojiGuesserList";
 
 export default function MovieFilterScreen({
 	navigation,
@@ -17,13 +19,42 @@ export default function MovieFilterScreen({
 	navigation: any;
 	route: any;
 }) {
-	const [filters, setFilters] = useState<{ [key: string]: Array<string> }>({
-		Genre: ["All"],
-		Rating: ["All"],
-		Year: ["All"],
-		Languages: ["All"],
-		Type: ["All"],
-	});
+	const section = route.params?.section;
+
+	const getInitialFiltersValue: any = () => {
+		switch (section) {
+			case SectionType.MOVIES:
+				return {
+					Genre: ["All"],
+					Rating: ["All"],
+					Year: ["All"],
+					Languages: ["All"],
+					Type: ["All"],
+				} as any;
+			case SectionType.FUN_GAMING_EMOJI_GUESSER:
+				return {
+					Gusser: ["AI"],
+					Topic: ["All"],
+				} as any;
+
+			default:
+				return {};
+		}
+	};
+
+	const selectFilters = () => {
+		switch (section) {
+			case SectionType.MOVIES:
+				return movieFilters;
+			case SectionType.FUN_GAMING_EMOJI_GUESSER:
+				return emojiGusserList;
+
+			default:
+				return [];
+		}
+	};
+
+	const [filters, setFilters] = useState<any>(getInitialFiltersValue());
 
 	const onProceed = () => {
 		navigation.navigate(routes.CHAT, {
@@ -49,12 +80,14 @@ export default function MovieFilterScreen({
 		}));
 	};
 
+	const list = selectFilters();
+
 	return (
 		<View style={styles.container}>
 			<StatusBar backgroundColor="black" barStyle="light-content" />
 
 			<FlatList
-				data={movieFilters}
+				data={list}
 				renderItem={({ item }) => (
 					<IngredientSection
 						{...item}

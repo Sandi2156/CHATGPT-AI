@@ -3,10 +3,11 @@ import apiClient from "./client";
 
 const getResponseChat = async (model: string, messages: Array<object>) => {
 	try {
+		console.log(messages);
 		const response = await apiClient.post("", {
 			model,
 			messages,
-			temperature: 0.7,
+			temperature: 0.8,
 		});
 
 		return response;

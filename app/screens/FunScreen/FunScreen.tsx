@@ -16,6 +16,11 @@ export default function FunScreen({
 	route: any;
 }) {
 	const handlePress = (item: (typeof funSectionList)[0]) => {
+		if (item.section === SectionType.FUN_GAMING_EMOJI_GUESSER)
+			return navigation.navigate(routes.MOVIES_FILTER, {
+				section: item.section,
+			});
+
 		navigation.navigate(routes.CHAT, { section: item.section });
 	};
 

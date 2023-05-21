@@ -119,7 +119,7 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 					][0];
 				break;
 			case SectionType.FUN_GAMING_EMOJI_GUESSER:
-				message.user.content = "Waiting for your emoji !";
+				message.user.content = "Let's Play 😎😎";
 				break;
 			case SectionType.FUN_GAMING_GUESS_WHO:
 				message.user.content = "Let's Play 😎😎";
@@ -269,8 +269,8 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 				return chatApi.healthCalculators({ messages, section });
 			case SectionType.MOVIES:
 				return chatApi.getMovieRecommendation({ messages });
-			case SectionType.FUN_GAMING_EMOJI_GUESSER:
-				return chatApi.guessEmoji({ messages });
+			// case SectionType.FUN_GAMING_EMOJI_GUESSER:
+			// 	return chatApi.guessEmoji({ messages });
 			default:
 				return chatApi.getResponseChat("gpt-3.5-turbo", messages);
 		}
@@ -380,6 +380,17 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 			sendWithoutShowing(
 				"I am thinking about character. You must ask me yes/no questions, and I will respond with a yes or no. You must guess the character that i am thinking about based on my response. Start with the first question."
 			);
+		} else if (section === SectionType.FUN_GAMING_EMOJI_GUESSER) {
+			const gusser = filters["Gusser"][0],
+				topic = filters["Topic"][0];
+			console.log(gusser, topic);
+			const prompt = `Let's play Emoji Translator game. ${
+				gusser === "AI"
+					? `Guess the emoji from topic ${topic} which I will be sending to you.`
+					: `Give me an emoji or combination of emoji which will be an example of any ${topic}. I will guess. don't give me the answer. you will tell me it's correct or not.`
+			}`;
+
+			sendWithoutShowing(prompt);
 		}
 	}, []);
 
