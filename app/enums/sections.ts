@@ -26,6 +26,7 @@ enum SectionType {
 	SQL_QUERY = "SQL_QUERY",
 	SQL_ERROR_FINDER = "SQL_ERROR_FINDER",
 	TRAVEL = "TRAVEL",
+	MOVIES = "MOVIES",
 }
 
 export default SectionType;

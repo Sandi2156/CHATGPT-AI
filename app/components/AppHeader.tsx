@@ -31,6 +31,8 @@ export default function AppHeader({
 				return "cooking";
 			case routes.SECTION_INNER_SECTION:
 				return "section";
+			case routes.MOVIES_FILTER:
+				return "movies & shows";
 			default:
 				return route.name.toLowerCase();
 		}

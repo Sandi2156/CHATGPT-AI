@@ -5,9 +5,18 @@ import Icon from "./Icon";
 import IconType from "../enums/icons";
 import colors from "../constants/colors";
 
-export default function SkipButton({ onClick }: { onClick: () => void }) {
+export default function SkipButton({
+	onClick,
+	bgColor = colors.lightGreen,
+}: {
+	onClick: () => void;
+	bgColor?: string;
+}) {
 	return (
-		<TouchableOpacity style={styles.container} onPress={onClick}>
+		<TouchableOpacity
+			style={[styles.container, { backgroundColor: bgColor }]}
+			onPress={onClick}
+		>
 			<Icon name="arrowright" type={IconType.ANTDESIGN} color="black" />
 		</TouchableOpacity>
 	);
@@ -21,7 +30,6 @@ const styles = StyleSheet.create({
 		height: 40,
 		width: 40,
 		borderRadius: 20,
-		backgroundColor: colors.lightGreen,
 		justifyContent: "center",
 		alignItems: "center",
 	},

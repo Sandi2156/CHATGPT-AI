@@ -30,6 +30,7 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 	const question = params?.question;
 	const section = params?.section;
 	const ingredients = params?.ingredients;
+	const filters = params?.filters;
 
 	const [noOfCalculatorQuestions, setNoOfCalculatorQuestions] = useState(1);
 
@@ -259,13 +260,15 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 			case SectionType.HEALTH_CALCULATORS_BMR:
 			case SectionType.HEALTH_CALCULATORS_CALORIE_MICRONUTRIENT:
 				return chatApi.healthCalculators({ messages, section });
+			case SectionType.MOVIES:
+				return chatApi.getMovieRecommendation({ messages });
 
 			default:
 				return chatApi.getResponseChat("gpt-3.5-turbo", messages);
 		}
 	};
 
-	const sendMessage = async (text: string) => {
+	const sendMessage = async (text: string, chatGptText?: string) => {
 		text = text.trim();
 		if (!text) return;
 
@@ -277,7 +280,10 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 		setMessages(local);
 
 		setIsSending(true);
-		const req = [...gptMessages, { role: "user", content: text }];
+		const req = [
+			...gptMessages,
+			{ role: "user", content: chatGptText || text },
+		];
 		const response = await chooseApi(req);
 		setIsSending(false);
 
@@ -296,6 +302,52 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 
 	useEffect(() => {
 		if (question) sendMessage(question);
+
+		if (section === SectionType.MOVIES) {
+			let content = "";
+			for (let key in filters) {
+				if (filters[key].length === 0) return;
+				content += `${content.length !== 0 ? "\n" : ""} ${key} : ${
+					filters[key][0]
+				}.`;
+			}
+
+			const message = {
+				_id: `${uuid.v4()}`,
+				user: {
+					_id: 1,
+					content,
+				},
+			};
+
+			// setMessages((messages) => [message, ...messages]);
+
+			let prompt = "Give me top 15 ";
+			const genre = filters["Genre"][0],
+				rating = filters["Rating"][0],
+				year = filters["Year"][0],
+				language = filters["Languages"][0],
+				type = filters["Type"][0];
+
+			if (type === "All") prompt += " movies and series";
+			else prompt += ` ${type}`;
+
+			if (genre === "All") prompt += " where Genre can be of any type";
+			else prompt += ` where Genre is of type ${genre}`;
+
+			if (rating === "All") prompt += ", can be of any rating";
+			else prompt += `, rating should be ${rating}`;
+
+			if (language === "All") prompt += ", can be in any language";
+			else prompt += `, should be in language ${language}`;
+
+			if (year === "All") prompt += " of all time";
+			else prompt += ` and it should be releasd on ${year}`;
+
+			prompt +=
+				". just give me movie names with year and imdb rating like this [name(year) - [rating]] and it should be presented in descending order of rating, do not give any other things.";
+			sendMessage(content, prompt);
+		}
 	}, []);
 
 	return (

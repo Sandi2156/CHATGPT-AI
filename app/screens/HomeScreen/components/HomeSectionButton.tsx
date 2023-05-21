@@ -36,6 +36,10 @@ export default function HomeSectionButton({
 				return navigation.navigate(routes.SECTION_INNER_SECTION, {
 					section,
 				});
+			case SectionType.MOVIES:
+				return navigation.navigate(routes.MOVIES_FILTER, {
+					section,
+				});
 			default:
 				return navigation.navigate(SUGGESTIONS, { section });
 		}

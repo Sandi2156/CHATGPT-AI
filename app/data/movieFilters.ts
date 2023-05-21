@@ -1,0 +1,65 @@
+const movieFilters = [
+	{
+		type: "Genre",
+		values: [
+			"All",
+			"Action",
+			"Adventure",
+			"Animation",
+			"Biography",
+			"Comedy",
+			"Crime",
+			"Documentary",
+			"Drama",
+			"Family",
+			"History",
+			"Horror",
+			"Musical",
+			"Mystery",
+			"Sci-Fi",
+			"War",
+		],
+	},
+	{
+		type: "Type",
+		values: ["All", "Movies", "TV Series"],
+	},
+	{
+		type: "Rating",
+		values: ["All", "9+", "8+", "7+", "6+", "4+", "3+", "2+", "1+"],
+	},
+	{
+		type: "Year",
+		values: [
+			"All",
+			"2021",
+			"2020",
+			"2019",
+			"2015-2018",
+			"2010-2014",
+			"2000-2009",
+			"1990-1999",
+			"1980-1989",
+		],
+	},
+	{
+		type: "Languages",
+		values: [
+			"All",
+			"Hindi",
+			"English",
+			"Tamil",
+			"Telegu",
+			"Punjabi",
+			"Bengali",
+			"Bihari",
+			"Korean",
+			"Chinese",
+			"Japanese",
+			"Thai",
+			"Kannada",
+		],
+	},
+];
+
+export default movieFilters;

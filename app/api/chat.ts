@@ -427,6 +427,29 @@ const healthCalculators = async ({
 	}
 };
 
+const getMovieRecommendation = async ({
+	model = "gpt-3.5-turbo",
+	messages,
+}: {
+	model?: string;
+	messages: Array<object>;
+}) => {
+	try {
+		const customMessages = [...messages];
+
+		console.log(customMessages);
+
+		const response = await apiClient.post("", {
+			model,
+			messages: customMessages,
+		});
+
+		return response;
+	} catch (error) {
+		console.log(error);
+	}
+};
+
 const chatApi = {
 	getResponseChat,
 	convertLanguage,
@@ -444,6 +467,7 @@ const chatApi = {
 	findErrorInQuery,
 	letsKnowAboutDisease,
 	healthCalculators,
+	getMovieRecommendation,
 };
 
 export default chatApi;

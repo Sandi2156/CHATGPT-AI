@@ -10,6 +10,7 @@ import SuggestionsScreen from "../screens/SuggestionScreen/SuggestionsScreen";
 import colors from "../constants/colors";
 import IngredientsScreen from "../screens/IngredientsScreen/IngredientsScreen";
 import InnerSectionScreen from "../screens/InnserSectionScreen/InnerSectionScreen";
+import MovieFilterScreen from "../screens/MovieFilterScreen/MovieFilterScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -56,6 +57,22 @@ export default function HomeNavigator() {
 			<Stack.Screen
 				name={routes.INGREDIENTS}
 				component={IngredientsScreen}
+				options={({ navigation }) => ({
+					header: ({ navigation, options, route, back }) => (
+						<AppHeader
+							navigation={navigation}
+							options={options}
+							route={route}
+							back={back}
+							backgroundColor={colors.black}
+						/>
+					),
+				})}
+			/>
+
+			<Stack.Screen
+				name={routes.MOVIES_FILTER}
+				component={MovieFilterScreen}
 				options={({ navigation }) => ({
 					header: ({ navigation, options, route, back }) => (
 						<AppHeader
