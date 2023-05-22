@@ -5,6 +5,7 @@ const apiClient = create({
 	headers: {
 		"Content-Type": "application/json",
 		Authorization: "Bearer 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",
+		max_tokens: 1000,
 	},
 });
 

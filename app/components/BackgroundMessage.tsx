@@ -20,7 +20,7 @@ export default function BackgroundMessage() {
 			</View>
 
 			<AppText
-				color={colors.lightOrange}
+				color={colors.lightSky}
 				style={{
 					fontWeight: "400",
 					fontSize: 14,
