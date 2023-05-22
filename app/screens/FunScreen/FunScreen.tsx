@@ -1,4 +1,5 @@
 import { StyleSheet, View, FlatList, StatusBar } from "react-native";
+import AppBannerAd from "../../components/ads/BannerAd";
 
 import InnerSectionItem from "../../components/InnerSectionItem";
 import ItemSeperator from "../../components/ItemSeperator";
@@ -38,6 +39,10 @@ export default function FunScreen({
 				columnWrapperStyle={styles.columnWrapperStyle}
 				ItemSeparatorComponent={ItemSeperator}
 			/>
+
+			<View style={{ marginBottom: 30 }}>
+				<AppBannerAd />
+			</View>
 		</View>
 	);
 }
