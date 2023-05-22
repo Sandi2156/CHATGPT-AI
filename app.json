@@ -7,7 +7,7 @@
 		"icon": "./assets/appIcons/icon.png",
 		"userInterfaceStyle": "light",
 		"splash": {
-			"image": "./assets/appIcons/icon.png",
+			"image": "./assets/appIcons/chatgpt_foreground.png",
 			"resizeMode": "contain",
 			"backgroundColor": "#161b22"
 		},

@@ -8,12 +8,12 @@ export default function BackgroundMessage() {
 		<View>
 			<View style={{ marginBottom: 0 }}>
 				<Image
-					source={require("../../assets/background/done-blank-dark2.png")}
+					source={require("../../assets/background/img3.png")}
 					style={{
 						resizeMode: "contain",
 						flex: 1,
-						height: 250,
-						width: 250,
+						height: 300,
+						width: 300,
 						alignSelf: "center",
 					}}
 				/>
