@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, FlatList, StyleSheet, StatusBar } from "react-native";
 import uuid from "react-native-uuid";
+import { useInterstitialAd, TestIds } from "react-native-google-mobile-ads";
 
 import ChatItem from "./components/ChatItem";
 import ChatBox from "../../components/ChatBox";
@@ -33,6 +34,13 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 	const filters = params?.filters;
 
 	const [noOfCalculatorQuestions, setNoOfCalculatorQuestions] = useState(1);
+	const { load, show, isLoaded, isClosed } = useInterstitialAd(
+		TestIds.INTERSTITIAL,
+		{
+			requestNonPersonalizedAdsOnly: true,
+		}
+	);
+	const [hasTypedSomething, setHasTypedSomething] = useState(false);
 
 	const selectInitialInputText = () => {
 		switch (section) {
@@ -295,8 +303,24 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 		const response = await chooseApi(req);
 		setIsSending(false);
 
-		if (!response.ok) return;
+		if (!response.ok) {
+			setHasTypedSomething(false);
 
+			const [_, ...rest] = local;
+			setMessages([
+				{
+					_id: `${uuid.v4()}`,
+					user: {
+						_id: 2,
+						content: "We are Sorry 😥. Facing an error. Try after some time.",
+					},
+				},
+				...rest,
+			]);
+			return;
+		}
+
+		setHasTypedSomething(true);
 		const [_, ...rest] = local;
 		setMessages([
 			{
@@ -323,8 +347,24 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 		const response = await chooseApi(req);
 		setIsSending(false);
 
-		if (!response.ok) return;
+		if (!response.ok) {
+			setHasTypedSomething(false);
 
+			const [_, ...rest] = local;
+			setMessages([
+				{
+					_id: `${uuid.v4()}`,
+					user: {
+						_id: 2,
+						content: "We are Sorry 😥. Facing an error. Try after some time.",
+					},
+				},
+				...rest,
+			]);
+			return;
+		}
+
+		setHasTypedSomething(true);
 		const [_, ...rest] = local;
 		setMessages([
 			{
@@ -392,6 +432,18 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 			sendWithoutShowing(prompt);
 		}
 	}, []);
+
+	useEffect(() => {
+		load();
+	}, [load]);
+
+	useEffect(() => {
+		navigation.addListener("beforeRemove", () => {
+			if (isLoaded && hasTypedSomething) {
+				show();
+			}
+		});
+	}, [navigation, isLoaded, hasTypedSomething]);
 
 	return (
 		<View>
