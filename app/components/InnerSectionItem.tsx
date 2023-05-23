@@ -13,7 +13,7 @@ type PropsType = {
 	bgColor?: string;
 };
 export default function InnerSectionItem(props: PropsType) {
-	const { iconName, iconType, title, onPress, bgColor = "#A9CEC2" } = props;
+	const { iconName, iconType, title, onPress, bgColor = "#B2F9E9" } = props;
 
 	return (
 		<TouchableOpacity

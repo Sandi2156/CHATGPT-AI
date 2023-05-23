@@ -14,6 +14,7 @@ import routes from "../../enums/routes";
 import colors from "../../constants/colors";
 import AppBannerAd from "../../components/ads/BannerAd";
 import BackgroundMessage from "../../components/BackgroundMessage";
+import HomeSlider from "./components/HomeSlider";
 
 export default function HomeScreen() {
 	const one = buttonList.slice(0, 4);
@@ -51,6 +52,10 @@ export default function HomeScreen() {
 						<HomeSectionButton key={index} {...item} />
 					))}
 				</View>
+			</View>
+
+			<View style={{ paddingHorizontal: 10, marginBottom: 25 }}>
+				<HomeSlider />
 			</View>
 
 			<View style={styles.suggestionContainer}>
