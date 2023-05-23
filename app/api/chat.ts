@@ -276,7 +276,7 @@ const generateDish = async ({
 		reqMessage.content =
 			`I have these following ingredients: ` +
 			reqMessage.content +
-			". Name me some dishes which I can make from the ingredients";
+			". Name me some dishes which contain all these ingredients";
 
 		const response = await apiClient.post("", {
 			model,

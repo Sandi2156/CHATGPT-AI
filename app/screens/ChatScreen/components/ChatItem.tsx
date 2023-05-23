@@ -10,7 +10,7 @@ export default function ChatItem({ user }: PropsType) {
 		return (
 			<View style={styles.lottie_container}>
 				<Lottie
-					source={require("../../../../assets/animations/97930-loading.json")}
+					source={require("../../../../assets/animations/loading.json")}
 					autoPlay
 					loop
 					style={{ height: 50, width: 50 }}

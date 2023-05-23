@@ -1,13 +1,13 @@
 {
 	"expo": {
-		"name": "chatgpt-ai",
-		"slug": "chatgpt-ai",
+		"name": "JohnKnows: The All-Knowing Chatbot",
+		"slug": "johnknowsitall",
 		"version": "1.0.0",
 		"orientation": "portrait",
-		"icon": "./assets/appIcons/icon.png",
+		"icon": "./assets/appIcons/chatgpt.png",
 		"userInterfaceStyle": "light",
 		"splash": {
-			"image": "./assets/appIcons/chatgpt_foreground.png",
+			"image": "./assets/appIcons/foreground.png",
 			"resizeMode": "contain",
 			"backgroundColor": "#161b22"
 		},
@@ -17,18 +17,18 @@
 		},
 		"android": {
 			"adaptiveIcon": {
-				"foregroundImage": "./assets/appIcons/chatgpt_foreground.png",
-				"monochromeImage": "./assets/appIcons/chatgpt_monochrome.png",
-				"backgroundImage": "./assets/appIcons/chatgpt_background.png"
+				"foregroundImage": "./assets/appIcons/foreground.png",
+				"backgroundImage": "./assets/appIcons/background.png"
 			},
-			"package": "com.sandipan72.chatgptai"
+			"package": "com.johnknowsitall.chatbotai",
+			"versionCode": 1
 		},
 		"web": {
 			"favicon": "./assets/favicon.png"
 		},
 		"extra": {
 			"eas": {
-				"projectId": "e8e54f48-927f-48db-ab1d-a5c3e5318d78"
+				"projectId": "a0e19d84-fbba-4d52-abaf-7e685c902199"
 			}
 		}
 	},
