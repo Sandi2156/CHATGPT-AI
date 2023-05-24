@@ -34,8 +34,8 @@ export default function ChatScreen({ navigation, route }: PropsType) {
 	const filters = params?.filters;
 
 	const [noOfCalculatorQuestions, setNoOfCalculatorQuestions] = useState(1);
-	const { load, show, isLoaded, isClosed } = useInterstitialAd(
-		TestIds.INTERSTITIAL,
+	const { load, show, isLoaded } = useInterstitialAd(
+		__DEV__ ? TestIds.INTERSTITIAL : "ca-app-pub-6209939265474141/5259824017",
 		{
 			requestNonPersonalizedAdsOnly: true,
 		}

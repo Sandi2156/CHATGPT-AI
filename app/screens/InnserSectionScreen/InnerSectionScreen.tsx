@@ -14,6 +14,7 @@ import colors from "../../constants/colors";
 import routes from "../../enums/routes";
 import SkipButton from "../../components/SkipButton";
 import SectionType from "../../enums/sections";
+import AppBannerAd from "../../components/ads/BannerAd";
 
 export default function InnerSectionScreen({
 	navigation,
@@ -72,7 +73,12 @@ export default function InnerSectionScreen({
 				ItemSeparatorComponent={ItemSeperator}
 			/>
 
-			<SkipButton onClick={() => navigation.navigate(routes.CHAT as never)} />
+			<AppBannerAd />
+
+			<SkipButton
+				onClick={() => navigation.navigate(routes.CHAT as never)}
+				bottom={100}
+			/>
 		</View>
 	);
 }

@@ -8,13 +8,15 @@ import colors from "../constants/colors";
 export default function SkipButton({
 	onClick,
 	bgColor = colors.lightGreen,
+	bottom = 50,
 }: {
 	onClick: () => void;
 	bgColor?: string;
+	bottom?: number;
 }) {
 	return (
 		<TouchableOpacity
-			style={[styles.container, { backgroundColor: bgColor }]}
+			style={[styles.container, { backgroundColor: bgColor, bottom: bottom }]}
 			onPress={onClick}
 		>
 			<Icon name="arrowright" type={IconType.ANTDESIGN} color="black" />

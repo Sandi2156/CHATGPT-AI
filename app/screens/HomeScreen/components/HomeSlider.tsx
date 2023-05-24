@@ -7,7 +7,6 @@ import InnerSectionItem from "../../../components/InnerSectionItem";
 import homeSliderList from "../../../data/homeSliderList";
 import SectionType from "../../../enums/sections";
 import routes from "../../../enums/routes";
-import colors from "../../../constants/colors";
 
 export default function HomeSlider() {
 	const navigation = useNavigation();
@@ -32,11 +31,10 @@ export default function HomeSlider() {
 				showsVerticalScrollIndicator={false}
 			>
 				{homeSliderList.map((item, index) => (
-					<View style={{ marginRight: 10 }}>
+					<View style={{ marginRight: 10 }} key={index}>
 						<InnerSectionItem
 							{...item}
 							onPress={() => handlePress(item)}
-							key={index}
 							bgColor={"#A9CEC2"}
 						/>
 					</View>
